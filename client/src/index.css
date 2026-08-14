@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-cream text-ink font-sans;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-navy;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  img {
+    @apply select-none;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-eyebrow text-mutedGold;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-outline,
+  .btn-white,
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full text-[12px] font-semibold uppercase tracking-[0.14em] transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-gold text-navy shadow-gold hover:bg-navy hover:text-white hover:shadow-lift;
+  }
+
+  .btn-outline {
+    @apply border border-navy/25 text-navy hover:border-navy hover:bg-navy hover:text-white;
+  }
+
+  .btn-white {
+    @apply bg-white text-navy hover:bg-gold;
+  }
+
+  .btn-dark {
+    @apply bg-navy text-white hover:bg-gold hover:text-navy;
+  }
+
+  .input-base {
+    @apply w-full rounded-2xl border border-ink/10 bg-white px-4 py-3.5 text-sm text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-gold focus:ring-2 focus:ring-gold/20;
+  }
+
+  .label-base {
+    @apply mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.14em] text-ink/60;
+  }
+
+  .card-base {
+    @apply overflow-hidden rounded-4xl bg-white shadow-soft;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f0e8;
+}
+::-webkit-scrollbar-thumb {
+  background: #fca311;
+  border-radius: 999px;
+}
