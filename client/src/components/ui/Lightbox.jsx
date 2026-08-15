@@ -41,13 +41,13 @@ export default function Lightbox({ images, index, onClose, onNavigate }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-navy/95 p-4"
+        className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-deep/95 p-4"
         onClick={onClose}
       >
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-gold hover:text-navy"
+          className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-gold hover:text-deep"
         >
           <X size={20} />
         </button>
@@ -59,7 +59,7 @@ export default function Lightbox({ images, index, onClose, onNavigate }) {
               go(-1);
             }}
             aria-label="Previous"
-            className="absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-gold hover:text-navy"
+            className="absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-gold hover:text-deep"
           >
             <ChevronLeft size={22} />
           </button>
@@ -92,7 +92,7 @@ export default function Lightbox({ images, index, onClose, onNavigate }) {
               go(1);
             }}
             aria-label="Next"
-            className="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-gold hover:text-navy"
+            className="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-gold hover:text-deep"
           >
             <ChevronRight size={22} />
           </button>

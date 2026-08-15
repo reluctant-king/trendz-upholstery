@@ -71,7 +71,7 @@ export default function CategoriesManage() {
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {categories.map((c) => (
-          <div key={c._id} className="group flex items-center gap-4 overflow-hidden rounded-4xl bg-white p-4 shadow-soft transition-all hover:shadow-lift">
+          <div key={c._id} className="group flex items-center gap-4 overflow-hidden rounded-4xl bg-surface p-4 shadow-soft transition-all hover:shadow-lift">
             <img src={c.image} alt={c.name} className="h-16 w-16 shrink-0 rounded-2xl object-cover" />
             <div className="min-w-0 flex-1">
               <h3 className="font-display text-lg text-navy">{c.name}</h3>

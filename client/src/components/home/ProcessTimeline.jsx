@@ -36,7 +36,7 @@ export default function ProcessTimeline() {
                   className={`relative flex gap-5 lg:gap-0 ${left ? 'lg:pr-16 lg:text-right' : 'lg:pl-16'}`}
                 >
                   <div className={`relative z-10 shrink-0 lg:absolute lg:top-1 ${left ? 'lg:right-0 lg:translate-x-1/2' : 'lg:left-0 lg:-translate-x-1/2'}`}>
-                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gold font-display text-sm font-bold text-navy shadow-gold">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gold font-display text-sm font-bold text-deep shadow-gold">
                       {step.n}
                     </span>
                   </div>

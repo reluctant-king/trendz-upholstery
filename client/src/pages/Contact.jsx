@@ -15,8 +15,7 @@ export default function Contact() {
       'Get in touch with Trendz Upholstery — visit our studio, call us, message us on WhatsApp or send an enquiry for a free quote.',
   });
 
-  const { settings } = useSite();
-  const { projects } = useSite();
+  const { settings, projects } = useSite();
 
   const cards = [
     {
@@ -53,10 +52,10 @@ export default function Contact() {
   ];
 
   const socials = [
-    { icon: Instagram, href: settings.instagram || '#' },
-    { icon: Facebook, href: settings.facebook || '#' },
-    { icon: Youtube, href: settings.youtube || '#' },
-  ];
+    { icon: Instagram, href: settings.instagram },
+    { icon: Facebook, href: settings.facebook },
+    { icon: Youtube, href: settings.youtube },
+  ].filter((s) => s.href);
 
   return (
     <>
@@ -78,9 +77,9 @@ export default function Contact() {
                     href={c.href}
                     target={c.external ? '_blank' : undefined}
                     rel={c.external ? 'noreferrer' : undefined}
-                    className="group flex h-full items-start gap-4 rounded-4xl bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift"
+                    className="group flex h-full items-start gap-4 rounded-4xl bg-surface p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift"
                   >
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gold/15 text-mutedGold transition-colors group-hover:bg-gold group-hover:text-navy">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gold/15 text-mutedGold transition-colors group-hover:bg-gold group-hover:text-deep">
                       <c.icon size={19} />
                     </span>
                     <div>
@@ -89,7 +88,7 @@ export default function Contact() {
                     </div>
                   </a>
                 ) : (
-                  <div className="flex h-full items-start gap-4 rounded-4xl bg-white p-6 shadow-soft">
+                  <div className="flex h-full items-start gap-4 rounded-4xl bg-surface p-6 shadow-soft">
                     <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gold/15 text-mutedGold">
                       <c.icon size={19} />
                     </span>
@@ -103,22 +102,26 @@ export default function Contact() {
             ))}
 
             <Reveal delay={0.3}>
-              <div className="flex h-full flex-col justify-center gap-3 rounded-4xl bg-navy p-6 text-white">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gold">Follow Us</p>
-                <div className="flex items-center gap-3">
-                  {socials.map((s, i) => (
-                    <a
-                      key={i}
-                      href={s.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label="Social link"
-                      className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/75 transition-colors hover:border-gold hover:bg-gold hover:text-navy"
-                    >
-                      <s.icon size={16} />
-                    </a>
-                  ))}
-                </div>
+              <div className="flex h-full flex-col justify-center gap-3 rounded-4xl bg-deep p-6 text-white">
+                {socials.length > 0 && (
+                  <>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gold">Follow Us</p>
+                    <div className="flex items-center gap-3">
+                      {socials.map((s, i) => (
+                        <a
+                          key={i}
+                          href={s.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label="Social link"
+                          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/75 transition-colors hover:border-gold hover:bg-gold hover:text-deep"
+                        >
+                          <s.icon size={16} />
+                        </a>
+                      ))}
+                    </div>
+                  </>
+                )}
                 <Link to="/quote" className="btn-primary mt-4 justify-between px-5 py-3">
                   Start Your Project <ArrowRight size={15} />
                 </Link>

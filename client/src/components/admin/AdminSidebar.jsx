@@ -35,9 +35,9 @@ export default function AdminSidebar({ open, onClose }) {
 
   return (
     <>
-      {open && <div className="fixed inset-0 z-[60] bg-navy/50 backdrop-blur-sm lg:hidden" onClick={onClose} />}
+      {open && <div className="fixed inset-0 z-[60] bg-deep/50 backdrop-blur-sm lg:hidden" onClick={onClose} />}
       <aside
-        className={`fixed inset-y-0 left-0 z-[70] flex w-72 flex-col bg-navy text-white transition-transform duration-300 lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-[70] flex w-72 flex-col bg-deep text-white transition-transform duration-300 lg:translate-x-0 ${
           open ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -57,7 +57,7 @@ export default function AdminSidebar({ open, onClose }) {
               onClick={onClose}
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition-colors ${
-                  isActive ? 'bg-gold text-navy' : 'text-white/70 hover:bg-white/10 hover:text-white'
+                  isActive ? 'bg-gold text-deep' : 'text-white/70 hover:bg-white/10 hover:text-white'
                 }`
               }
             >
@@ -68,7 +68,7 @@ export default function AdminSidebar({ open, onClose }) {
 
         <div className="border-t border-white/10 px-6 py-5">
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gold font-display text-sm font-bold text-navy">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gold font-display text-sm font-bold text-deep">
               {admin?.name?.[0]?.toUpperCase() || 'A'}
             </span>
             <div className="min-w-0 flex-1">

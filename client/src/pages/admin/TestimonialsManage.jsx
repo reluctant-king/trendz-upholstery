@@ -71,7 +71,7 @@ export default function TestimonialsManage() {
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {testimonials.map((t) => (
-          <div key={t._id} className="rounded-4xl bg-white p-6 shadow-soft transition-all hover:shadow-lift">
+          <div key={t._id} className="rounded-4xl bg-surface p-6 shadow-soft transition-all hover:shadow-lift">
             <div className="flex items-center justify-between">
               <div className="flex text-gold">
                 {[1, 2, 3, 4, 5].map((i) => (
@@ -85,7 +85,7 @@ export default function TestimonialsManage() {
             <p className="mt-3 line-clamp-3 text-[13px] leading-relaxed text-ink/65">“{t.review}”</p>
             <div className="mt-4 flex items-center justify-between border-t border-ink/8 pt-4">
               <div className="flex items-center gap-2.5">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-navy text-[11px] font-bold text-gold">{initials(t.customerName)}</span>
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-deep text-[11px] font-bold text-gold">{initials(t.customerName)}</span>
                 <div>
                   <p className="text-sm font-semibold text-navy">{t.customerName}</p>
                   <p className="text-[11px] text-ink/45">{t.service}</p>

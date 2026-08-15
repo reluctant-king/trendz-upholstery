@@ -7,7 +7,7 @@ import { useSite } from '../../context/SiteContext';
 
 export default function FeaturedServices() {
   const { services } = useSite();
-  const list = services.slice(0, 8);
+  const list = services.slice(0, 4);
 
   return (
     <section className="bg-cream py-20 md:py-28" id="services">
@@ -42,7 +42,7 @@ export default function FeaturedServices() {
             >
               <Link
                 to={`/services`}
-                className="group flex h-full flex-col overflow-hidden rounded-4xl bg-white shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lift"
+                className="group flex h-full flex-col overflow-hidden rounded-4xl bg-surface shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lift"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
@@ -51,8 +51,8 @@ export default function FeaturedServices() {
                     className="h-full w-full"
                     imgClassName="transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  <span className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/85 text-navy opacity-0 backdrop-blur transition-all duration-500 group-hover:opacity-100">
+                  <div className="absolute inset-0 bg-gradient-to-t from-deep/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <span className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-surface/85 text-navy opacity-0 backdrop-blur transition-all duration-500 group-hover:opacity-100">
                     <ArrowUpRight size={16} />
                   </span>
                 </div>

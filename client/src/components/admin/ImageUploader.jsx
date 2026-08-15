@@ -91,7 +91,7 @@ export default function ImageUploader({ value = [], onChange, max = 12, folder =
           dragging ? 'border-gold bg-gold/10' : 'border-ink/15 bg-cream/40 hover:border-mutedGold hover:bg-cream/70'
         }`}
       >
-        <span className={`flex h-12 w-12 items-center justify-center rounded-full ${uploading ? 'bg-gold text-navy' : 'bg-gold/15 text-mutedGold'}`}>
+        <span className={`flex h-12 w-12 items-center justify-center rounded-full ${uploading ? 'bg-gold text-deep' : 'bg-gold/15 text-mutedGold'}`}>
           {uploading ? <Loader2 size={20} className="animate-spin" /> : <ImagePlus size={20} />}
         </span>
         <p className="mt-3 text-sm font-medium text-navy">
@@ -131,11 +131,11 @@ export default function ImageUploader({ value = [], onChange, max = 12, folder =
               }`}
             >
               <img src={img.url} alt={img.alt || 'Upload preview'} className="aspect-square w-full object-cover" />
-              <div className="absolute inset-0 flex items-center justify-center gap-1.5 bg-navy/60 opacity-0 transition-opacity group-hover:opacity-100">
+              <div className="absolute inset-0 flex items-center justify-center gap-1.5 bg-deep/60 opacity-0 transition-opacity group-hover:opacity-100">
                 <button
                   type="button"
                   onClick={() => openEditor(i)}
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-navy"
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-surface text-navy"
                   aria-label="Edit alt text and title"
                 >
                   <Pencil size={13} />
@@ -149,16 +149,16 @@ export default function ImageUploader({ value = [], onChange, max = 12, folder =
                   <Trash2 size={13} />
                 </button>
               </div>
-              <span className="absolute left-2 top-2 flex cursor-grab items-center rounded-md bg-white/85 p-1 text-ink/60" title="Drag to reorder">
+              <span className="absolute left-2 top-2 flex cursor-grab items-center rounded-md bg-surface/85 p-1 text-ink/60" title="Drag to reorder">
                 <GripVertical size={14} />
               </span>
               {img.title && (
-                <span className="absolute inset-x-0 bottom-0 truncate bg-white/85 px-2 py-1 text-[10px] font-medium text-navy">
+                <span className="absolute inset-x-0 bottom-0 truncate bg-surface/85 px-2 py-1 text-[10px] font-medium text-navy">
                   {img.title}
                 </span>
               )}
               {i === 0 && (
-                <span className="absolute bottom-0 left-0 rounded-tr-lg bg-gold px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-navy">
+                <span className="absolute bottom-0 left-0 rounded-tr-lg bg-gold px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-deep">
                   Cover
                 </span>
               )}
@@ -185,7 +185,7 @@ export default function ImageUploader({ value = [], onChange, max = 12, folder =
               <button type="button" onClick={saveEditor} className="btn-primary px-5 py-2.5">
                 Save
               </button>
-              <button type="button" onClick={() => setEditingIndex(-1)} aria-label="Close editor" className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink/60 hover:border-navy">
+              <button type="button" onClick={() => setEditingIndex(-1)} aria-label="Close editor" className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink/60 hover:border-deep">
                 <X size={16} />
               </button>
             </div>

@@ -29,7 +29,7 @@ export default function Quote() {
         <div className="container-px grid items-start gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
           <div className="space-y-8 lg:sticky lg:top-32">
             <Reveal>
-              <div className="rounded-4xl bg-navy p-8 text-white">
+              <div className="rounded-4xl bg-deep p-8 text-white">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gold">Prefer to talk?</p>
                 <h2 className="mt-3 font-display text-2xl">WhatsApp Us Directly</h2>
                 <p className="mt-2 text-sm text-white/60">
@@ -56,7 +56,7 @@ export default function Quote() {
                     'You receive a clear, itemised quotation',
                   ].map((step, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm text-ink/65">
-                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold text-[11px] font-bold text-navy">
+                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold text-[11px] font-bold text-deep">
                         {i + 1}
                       </span>
                       {step}

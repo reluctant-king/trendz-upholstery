@@ -24,7 +24,7 @@ export default function AboutPreview() {
             />
           </div>
           <div className="absolute -right-4 -top-4 -z-10 h-40 w-40 rounded-full border-2 border-gold/40" />
-          <div className="absolute -bottom-6 left-6 rounded-3xl bg-navy px-6 py-5 text-white shadow-lift">
+          <div className="absolute -bottom-6 left-6 rounded-3xl bg-deep px-6 py-5 text-white shadow-lift">
             <p className="font-display text-3xl text-gold">15+</p>
             <p className="text-[11px] uppercase tracking-[0.16em] text-white/60">Years of Craft</p>
           </div>

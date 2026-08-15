@@ -81,7 +81,7 @@ export default function EnquiriesManage() {
             key={s}
             onClick={() => setStatus(s)}
             className={`shrink-0 rounded-full border px-4 py-2 text-xs font-semibold transition-colors ${
-              status === s ? 'border-gold bg-gold text-navy' : 'border-ink/15 bg-white text-ink/55 hover:border-mutedGold'
+              status === s ? 'border-gold bg-gold text-deep' : 'border-ink/15 bg-surface text-ink/55 hover:border-mutedGold'
             }`}
           >
             {s} <span className="opacity-60">({counts(s)})</span>
@@ -97,7 +97,7 @@ export default function EnquiriesManage() {
       {loading ? (
         <div className="flex justify-center py-24"><Loader2 size={28} className="animate-spin text-gold" /></div>
       ) : (
-        <div className="overflow-hidden rounded-4xl bg-white shadow-soft">
+        <div className="overflow-hidden rounded-4xl bg-surface shadow-soft">
           <div className="overflow-x-auto">
             <table className="w-full min-w-[820px] text-left">
               <thead>
@@ -115,7 +115,7 @@ export default function EnquiriesManage() {
                   <tr key={e._id} className="border-b border-ink/5 transition-colors hover:bg-cream/40">
                     <td className="px-5 py-4">
                       <div className="flex items-center gap-3">
-                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy text-xs font-bold text-gold">{initials(e.name)}</span>
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-deep text-xs font-bold text-gold">{initials(e.name)}</span>
                         <div>
                           <p className="text-sm font-semibold text-navy">{e.name}</p>
                           <p className="text-xs text-ink/40">{e.email || 'No email'}</p>

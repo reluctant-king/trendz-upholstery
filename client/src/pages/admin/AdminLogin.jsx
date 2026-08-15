@@ -30,13 +30,13 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-navy px-5 py-12">
+    <div className="flex min-h-screen items-center justify-center bg-deep px-5 py-12">
       <div className="pointer-events-none absolute -left-32 top-20 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
       <div className="w-full max-w-md">
         <Link to="/" className="mb-8 inline-flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-gold">
           <ArrowLeft size={15} /> Back to website
         </Link>
-        <div className="rounded-4xl bg-white p-8 shadow-lift sm:p-10">
+        <div className="rounded-4xl bg-surface p-8 shadow-lift sm:p-10">
           <div className="mb-8 text-center">
             <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-3xl bg-gold/15 text-gold">
               <Lock size={22} />

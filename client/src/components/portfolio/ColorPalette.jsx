@@ -4,14 +4,14 @@ import PortfolioGrid from './PortfolioGrid';
 import { useSite } from '../../context/SiteContext';
 
 export const colorHex = {
-  Cream: '#F5F0E8',
-  Beige: '#E8DED0',
+  Cream: '#F4F6FA',
+  Beige: '#E7EBF2',
   Taupe: '#A4938A',
   Grey: '#9C9C9C',
   Olive: '#6B7B4F',
   Terracotta: '#C97B4A',
   Rust: '#B4603C',
-  Navy: '#14213D',
+  Navy: '#003566',
   Black: '#1A1A1A',
   Mustard: '#D9A50B',
   White: '#FFFFFF',
@@ -101,7 +101,7 @@ export default function ColorPalette({ className = '' }) {
               <PortfolioGrid projects={filtered.slice(0, 3)} />
             </>
           ) : (
-            <p className="rounded-2xl bg-white/70 px-5 py-4 text-sm text-ink/55">
+            <p className="rounded-2xl bg-surface/70 px-5 py-4 text-sm text-ink/55">
               No projects in this shade yet — but we can make any shade you can imagine.
             </p>
           )}

@@ -72,10 +72,10 @@ export default function CollectionsManage() {
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {collections.map((c) => (
-          <div key={c._id} className="group overflow-hidden rounded-4xl bg-white shadow-soft transition-all hover:shadow-lift">
+          <div key={c._id} className="group overflow-hidden rounded-4xl bg-surface shadow-soft transition-all hover:shadow-lift">
             <div className="relative">
               <img src={c.image} alt={c.name} className="aspect-[4/3] w-full object-cover" />
-              <span className="absolute left-3 top-3 rounded-full bg-white/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-navy backdrop-blur">{c.tagline}</span>
+              <span className="absolute left-3 top-3 rounded-full bg-surface/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-navy backdrop-blur">{c.tagline}</span>
             </div>
             <div className="p-5">
               <div className="flex items-center justify-between gap-2">

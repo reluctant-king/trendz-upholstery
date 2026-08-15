@@ -62,7 +62,7 @@ export default function BeforeAfterSlider({ before, after, labels = { before: 'B
             updateFromClientX(e.clientX);
             e.currentTarget.setPointerCapture?.(e.pointerId);
           }}
-          className="absolute top-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gold text-navy shadow-lift transition-transform hover:scale-105"
+          className="absolute top-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gold text-deep shadow-lift transition-transform hover:scale-105"
           aria-label="Drag to compare"
         >
           <MoveHorizontal size={20} />
@@ -70,10 +70,10 @@ export default function BeforeAfterSlider({ before, after, labels = { before: 'B
       </div>
 
       {/* Labels */}
-      <span className="pointer-events-none absolute left-4 top-4 rounded-full bg-navy/70 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur">
+      <span className="pointer-events-none absolute left-4 top-4 rounded-full bg-deep/70 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur">
         {labels.before}
       </span>
-      <span className="pointer-events-none absolute right-4 top-4 rounded-full bg-gold px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-navy">
+      <span className="pointer-events-none absolute right-4 top-4 rounded-full bg-gold px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-deep">
         {labels.after}
       </span>
     </motion.div>

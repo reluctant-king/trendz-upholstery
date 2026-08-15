@@ -106,7 +106,7 @@ export default function PortfolioManage() {
         </select>
       </div>
 
-      <div className="overflow-hidden rounded-4xl bg-white shadow-soft">
+      <div className="overflow-hidden rounded-4xl bg-surface shadow-soft">
         <div className="overflow-x-auto">
           <table className="w-full min-w-[720px] text-left">
             <thead>
@@ -138,7 +138,7 @@ export default function PortfolioManage() {
                       onClick={() => toggleFlag(p, 'featured')}
                       aria-label="Toggle featured"
                       className={`inline-flex h-8 w-8 items-center justify-center rounded-full transition-colors ${
-                        p.featured ? 'bg-gold text-navy' : 'bg-cream text-ink/30 hover:text-gold'
+                        p.featured ? 'bg-gold text-deep' : 'bg-cream text-ink/30 hover:text-gold'
                       }`}
                     >
                       <Star size={15} />

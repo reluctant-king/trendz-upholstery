@@ -92,7 +92,7 @@ export default function EnquiryDetail() {
 
       <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr]">
         <div className="space-y-6">
-          <div className="rounded-4xl bg-white p-6 shadow-soft sm:p-8">
+          <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <h1 className="font-display text-2xl text-navy">{enquiry.name}</h1>
@@ -131,7 +131,7 @@ export default function EnquiryDetail() {
             </div>
           </div>
 
-          <div className="rounded-4xl bg-white p-6 shadow-soft sm:p-8">
+          <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
             <h2 className="font-display text-xl text-navy">Project Description</h2>
             <p className="mt-3 whitespace-pre-line text-[15px] leading-relaxed text-ink/70">{enquiry.description}</p>
 
@@ -165,7 +165,7 @@ export default function EnquiryDetail() {
         </div>
 
         <div className="space-y-6">
-          <div className="rounded-4xl bg-white p-6 shadow-soft sm:p-8">
+          <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
             <h2 className="font-display text-xl text-navy">Update Status</h2>
             <div className="mt-4 flex flex-wrap gap-2">
               {statuses.map((s) => (
@@ -174,7 +174,7 @@ export default function EnquiryDetail() {
                   onClick={() => updateStatus(s)}
                   disabled={saving}
                   className={`rounded-full border px-4 py-2 text-xs font-semibold transition-colors disabled:opacity-50 ${
-                    enquiry.status === s ? 'border-gold bg-gold text-navy' : 'border-ink/15 text-ink/55 hover:border-mutedGold'
+                    enquiry.status === s ? 'border-gold bg-gold text-deep' : 'border-ink/15 text-ink/55 hover:border-mutedGold'
                   }`}
                 >
                   {s}
@@ -183,7 +183,7 @@ export default function EnquiryDetail() {
             </div>
           </div>
 
-          <div className="rounded-4xl bg-white p-6 shadow-soft sm:p-8">
+          <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
             <h2 className="font-display text-xl text-navy">Internal Notes</h2>
             <p className="mt-1 text-xs text-ink/45">Only visible to you, not to the customer.</p>
             <textarea
@@ -199,7 +199,7 @@ export default function EnquiryDetail() {
             {error && <p className="mt-3 text-sm text-red-500">{error}</p>}
           </div>
 
-          <div className="rounded-4xl bg-navy p-6 text-white">
+          <div className="rounded-4xl bg-deep p-6 text-white">
             <h3 className="font-display text-lg">Contact Method Preferred</h3>
             <p className="mt-1 text-sm capitalize text-white/60">{contact}</p>
             <a

@@ -78,7 +78,7 @@ export default function MaterialsManage() {
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {materials.map((m) => (
-          <div key={m._id} className="group overflow-hidden rounded-4xl bg-white shadow-soft transition-all hover:shadow-lift">
+          <div key={m._id} className="group overflow-hidden rounded-4xl bg-surface shadow-soft transition-all hover:shadow-lift">
             <img src={m.image} alt={m.name} className="aspect-[4/3] w-full object-cover" />
             <div className="p-5">
               <div className="flex items-center justify-between gap-2">

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { ArrowRight, Menu } from 'lucide-react';
+import { ArrowRight, Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Logo from './Logo';
+import ThemeToggle from '../ui/ThemeToggle';
 import { useSite } from '../../context/SiteContext';
 
 const links = [
@@ -70,6 +71,7 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-3">
+            <ThemeToggle className="hidden lg:flex" />
             <Link
               to="/quote"
               className="btn-primary hidden sm:inline-flex px-6 py-3"
@@ -79,7 +81,7 @@ export default function Navbar() {
             <button
               onClick={() => setMobileOpen((v) => !v)}
               aria-label="Open menu"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/10 bg-white/70 text-navy backdrop-blur transition-colors hover:bg-gold lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/10 bg-surface/70 text-navy backdrop-blur transition-colors hover:bg-gold hover:text-deep lg:hidden"
             >
               <Menu size={20} />
             </button>
@@ -94,16 +96,19 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[80] flex flex-col bg-navy lg:hidden"
+            className="fixed inset-0 z-[80] flex flex-col bg-deep lg:hidden"
           >
             <div className="container-px flex h-20 items-center justify-between">
-              <Logo dark />
+              <div className="flex items-center gap-3">
+                <Logo dark />
+                <ThemeToggle dark />
+              </div>
               <button
                 onClick={() => setMobileOpen(false)}
                 aria-label="Close menu"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white transition-colors hover:bg-gold hover:text-navy"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white transition-colors hover:bg-gold hover:text-deep"
               >
-                <Menu size={20} className="rotate-90" />
+                <X size={20} />
               </button>
             </div>
 

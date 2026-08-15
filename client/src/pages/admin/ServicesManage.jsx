@@ -78,7 +78,7 @@ export default function ServicesManage() {
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s) => (
-          <div key={s._id} className="group overflow-hidden rounded-4xl bg-white shadow-soft transition-all hover:shadow-lift">
+          <div key={s._id} className="group overflow-hidden rounded-4xl bg-surface shadow-soft transition-all hover:shadow-lift">
             <img src={s.image} alt={s.title} className="aspect-[16/9] w-full object-cover" />
             <div className="p-5">
               <div className="flex items-center justify-between gap-2">

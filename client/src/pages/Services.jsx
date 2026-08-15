@@ -13,7 +13,7 @@ export default function Services() {
   useSeo({
     title: 'Services',
     description:
-      'Sofa sets, sofa upholstery, curtains, seat covers, cushions, chair and dining upholstery, car seat covers and custom furniture — all crafted to fit your space.',
+      'Sofa sets, sofa upholstery, curtains, blinds, seat covers, cushions, chair and dining upholstery, car seat covers and custom furniture — all crafted to fit your space.',
   });
 
   const { services, projects } = useSite();
@@ -37,7 +37,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.6, delay: (i % 2) * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="group overflow-hidden rounded-4xl bg-white shadow-soft transition-all duration-500 hover:-translate-y-1 hover:shadow-lift"
+              className="group overflow-hidden rounded-4xl bg-surface shadow-soft transition-all duration-500 hover:-translate-y-1 hover:shadow-lift"
             >
               <div className="grid sm:grid-cols-[1fr_1.2fr]">
                 <div className="relative overflow-hidden">
@@ -68,7 +68,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="bg-navy py-16 md:py-20 text-center">
+      <section className="bg-deep py-16 md:py-20 text-center">
         <div className="container-px">
           <SectionHeading
             eyebrow="Not Sure What You Need?"

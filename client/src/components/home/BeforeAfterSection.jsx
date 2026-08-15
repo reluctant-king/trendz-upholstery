@@ -15,7 +15,7 @@ export default function BeforeAfterSection() {
   const demo = projects.find((p) => p.beforeImage && p.afterImage);
 
   return (
-    <section className="bg-navy py-20 text-white md:py-28">
+    <section className="bg-deep py-20 text-white md:py-28">
       <div className="container-px grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="order-2 lg:order-1">
           <BeforeAfterSlider
@@ -38,7 +38,7 @@ export default function BeforeAfterSection() {
                 key={i}
                 className="flex items-start gap-4 rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur"
               >
-                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold text-navy">
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold text-deep">
                   <Check size={14} strokeWidth={3} />
                 </span>
                 <div className="flex-1">

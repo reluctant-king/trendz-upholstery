@@ -20,8 +20,8 @@ export default function PortfolioFilter({ categories, active, onChange, classNam
           onClick={() => onChange(cat)}
           className={`shrink-0 rounded-full border px-5 py-2.5 text-[12px] font-semibold tracking-wide transition-all duration-300 ${
             active === cat
-              ? 'border-gold bg-gold text-navy shadow-gold'
-              : 'border-ink/15 bg-white/60 text-ink/60 hover:border-mutedGold hover:text-navy'
+              ? 'border-gold bg-gold text-deep shadow-gold'
+              : 'border-ink/15 bg-surface/60 text-ink/60 hover:border-mutedGold hover:text-navy'
           }`}
         >
           {cat}

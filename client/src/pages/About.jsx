@@ -70,7 +70,7 @@ export default function About() {
             <Reveal delay={0.18}>
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {stats.map((s, i) => (
-                  <div key={i} className="rounded-3xl bg-white p-5 text-center shadow-soft">
+                  <div key={i} className="rounded-3xl bg-surface p-5 text-center shadow-soft">
                     <p className="font-display text-3xl text-gold">{s.value}</p>
                     <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink/50">{s.label}</p>
                   </div>
@@ -91,7 +91,7 @@ export default function About() {
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v, i) => (
               <Reveal key={v.title} delay={i * 0.08} className="h-full">
-                <div className="flex h-full flex-col rounded-4xl bg-white p-7 shadow-soft transition-all duration-500 hover:-translate-y-1 hover:shadow-lift">
+                <div className="flex h-full flex-col rounded-4xl bg-surface p-7 shadow-soft transition-all duration-500 hover:-translate-y-1 hover:shadow-lift">
                   <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gold/15 text-mutedGold">
                     <Check size={18} strokeWidth={3} />
                   </span>
@@ -104,7 +104,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-navy py-16 md:py-20 text-center">
+      <section className="bg-deep py-16 md:py-20 text-center">
         <div className="container-px">
           <SectionHeading
             eyebrow="Let's Work Together"

@@ -124,7 +124,7 @@ export default function ProjectFormPage() {
 
       <form onSubmit={submit} className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
         <div className="space-y-6">
-          <div className="rounded-4xl bg-white p-6 shadow-soft sm:p-8">
+          <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
             <h3 className="mb-5 font-display text-lg text-navy">Project Details</h3>
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="sm:col-span-2">
@@ -150,13 +150,13 @@ export default function ProjectFormPage() {
             </div>
           </div>
 
-          <div className="rounded-4xl bg-white p-6 shadow-soft sm:p-8">
+          <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
             <h3 className="mb-2 font-display text-lg text-navy">Images</h3>
             <p className="mb-5 text-xs text-ink/45">Upload to Cloudinary — drag to reorder. The first gallery image is the cover.</p>
             <ImageUploader value={form.galleryImages} onChange={(galleryImages) => set('galleryImages', galleryImages)} max={12} folder="projects" />
           </div>
 
-          <div className="rounded-4xl bg-white p-6 shadow-soft sm:p-8">
+          <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
             <h3 className="mb-5 font-display text-lg text-navy">Cover & Before / After</h3>
             <div className="grid gap-5 sm:grid-cols-2">
               <SingleImageUploader label="Cover Image" aspect="aspect-[4/3]" value={form.coverImage} onChange={(url) => set('coverImage', url)} folder="projects" />
@@ -169,7 +169,7 @@ export default function ProjectFormPage() {
             </div>
           </div>
 
-          <div className="rounded-4xl bg-white p-6 shadow-soft sm:p-8">
+          <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
             <h3 className="mb-5 font-display text-lg text-navy">SEO</h3>
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="sm:col-span-2">
@@ -183,7 +183,7 @@ export default function ProjectFormPage() {
         </div>
 
         <div className="space-y-6">
-          <div className="rounded-4xl bg-white p-6 shadow-soft sm:p-8 lg:sticky lg:top-24">
+          <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8 lg:sticky lg:top-24">
             <h3 className="mb-5 font-display text-lg text-navy">Publish</h3>
             <div className="space-y-3">
               <Toggle label="Featured Project" description="Shown prominently on the homepage" checked={form.featured} onChange={(v) => set('featured', v)} />

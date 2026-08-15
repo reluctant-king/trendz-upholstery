@@ -5,11 +5,11 @@ import Image from '../ui/Image';
 
 export default function PageHeader({ eyebrow, title, subtitle, image, crumb }) {
   return (
-    <section className="relative overflow-hidden bg-navy pt-32 pb-20 text-white md:pt-44 md:pb-24">
+    <section className="relative overflow-hidden bg-deep pt-32 pb-20 text-white md:pt-44 md:pb-24">
       {image && (
         <div className="absolute inset-0">
           <Image src={image} alt="" eager className="h-full w-full" imgClassName="opacity-25" />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/60 to-navy" />
+          <div className="absolute inset-0 bg-gradient-to-b from-deep/80 via-deep/60 to-deep" />
         </div>
       )}
       <div className="container-px relative">

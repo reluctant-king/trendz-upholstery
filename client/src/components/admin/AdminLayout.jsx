@@ -31,7 +31,7 @@ export default function AdminLayout({ children }) {
               </span>
             )}
             <span className="hidden text-xs text-ink/45 sm:block">{admin?.name}</span>
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gold font-display text-sm font-bold text-navy">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gold font-display text-sm font-bold text-deep">
               {admin?.name?.[0]?.toUpperCase() || 'A'}
             </span>
           </div>

@@ -5,12 +5,12 @@ import { useSite } from '../../context/SiteContext';
 import { Link } from 'react-router-dom';
 
 const colorHex = {
-  Navy: '#14213D',
-  Mustard: '#D9A50B',
+  Navy: '#003566',
+  Mustard: '#FFC300',
   Forest: '#2F4F3A',
   Blush: '#E8C4C4',
-  Cream: '#F5F0E8',
-  Beige: '#E8DED0',
+  Cream: '#F4F6FA',
+  Beige: '#E7EBF2',
   Grey: '#9C9C9C',
   White: '#FFFFFF',
   Olive: '#6B7B4F',
@@ -22,7 +22,7 @@ const colorHex = {
   Sand: '#D8C7A9',
   Terracotta: '#C97B4A',
   Rust: '#B4603C',
-  'Any color': '#FCA311',
+  'Any color': '#FFC300',
   'Any texture': '#B4A68F',
   'Any print': '#8A9BAB',
 };
@@ -48,7 +48,7 @@ export default function MaterialShowcase() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.55, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
-              className="group overflow-hidden rounded-4xl bg-white shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lift"
+              className="group overflow-hidden rounded-4xl bg-surface shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lift"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
@@ -57,7 +57,7 @@ export default function MaterialShowcase() {
                   className="h-full w-full"
                   imgClassName="transition-transform duration-700 group-hover:scale-110"
                 />
-                <span className="absolute left-4 top-4 rounded-full bg-white/85 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-navy backdrop-blur">
+                <span className="absolute left-4 top-4 rounded-full bg-surface/85 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-navy backdrop-blur">
                   {material.name}
                 </span>
               </div>

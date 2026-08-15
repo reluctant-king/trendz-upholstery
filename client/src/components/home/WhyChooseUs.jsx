@@ -27,7 +27,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="relative overflow-hidden bg-navy py-20 text-white md:py-28">
+    <section className="relative overflow-hidden bg-deep py-20 text-white md:py-28">
       <div className="pointer-events-none absolute -right-32 top-10 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
       <div className="container-px relative">
         <SectionHeading
@@ -42,7 +42,7 @@ export default function WhyChooseUs() {
           {features.map((f, i) => (
             <Reveal key={f.title} delay={i * 0.08} className="h-full">
               <div className="group flex h-full flex-col rounded-4xl border border-white/10 bg-white/5 p-7 backdrop-blur transition-all duration-500 hover:-translate-y-1.5 hover:border-gold/40 hover:bg-white/10">
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/15 text-gold transition-all duration-500 group-hover:bg-gold group-hover:text-navy">
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/15 text-gold transition-all duration-500 group-hover:bg-gold group-hover:text-deep">
                   <f.icon size={22} />
                 </span>
                 <h3 className="mt-6 font-display text-xl text-white">{f.title}</h3>

@@ -7,7 +7,7 @@ import { whatsaapLink } from '../../lib/utils';
 const services = [
   'Sofa Set',
   'Sofa Upholstery',
-  'Curtains',
+  'Curtains & Blinds',
   'Seat Covers',
   'Chair Upholstery',
   'Cushions',
@@ -112,7 +112,7 @@ export default function QuoteForm({ compact = false }) {
 
   if (success) {
     return (
-      <div className="flex flex-col items-center rounded-4xl bg-white p-10 text-center shadow-soft">
+      <div className="flex flex-col items-center rounded-4xl bg-surface p-10 text-center shadow-soft">
         <span className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-green-600">
           <CheckCircle2 size={32} />
         </span>
@@ -134,7 +134,7 @@ export default function QuoteForm({ compact = false }) {
   return (
     <form
       onSubmit={submit}
-      className={`rounded-4xl bg-white p-6 shadow-lift sm:p-9 ${compact ? '' : 'lg:p-12'}`}
+      className={`rounded-4xl bg-surface p-6 shadow-lift sm:p-9 ${compact ? '' : 'lg:p-12'}`}
       noValidate
     >
       <div className="grid gap-5 sm:grid-cols-2">
@@ -217,7 +217,7 @@ export default function QuoteForm({ compact = false }) {
                 type="button"
                 onClick={() => removeImage(i)}
                 aria-label="Remove image"
-                className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-navy text-white opacity-0 transition-opacity group-hover:opacity-100"
+                className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-deep text-white opacity-0 transition-opacity group-hover:opacity-100"
               >
                 <X size={11} />
               </button>

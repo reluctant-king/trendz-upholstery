@@ -42,7 +42,7 @@ export default function SignatureCollections() {
                   className="h-full w-full"
                   imgClassName="transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/25 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-deep/85 via-deep/25 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6">
                   {collection.tagline && (
                     <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold">

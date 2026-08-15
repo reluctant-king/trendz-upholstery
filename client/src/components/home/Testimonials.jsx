@@ -27,7 +27,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="flex h-full flex-col rounded-4xl bg-white p-7 shadow-soft"
+              className="flex h-full flex-col rounded-4xl bg-surface p-7 shadow-soft"
             >
               <Quote size={30} className="text-gold/50" />
               <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-ink/75">
@@ -35,7 +35,7 @@ export default function Testimonials() {
               </blockquote>
               <Stars rating={t.rating} className="mt-5" />
               <figcaption className="mt-5 flex items-center gap-3 border-t border-ink/8 pt-5">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-navy font-display text-sm font-semibold text-gold">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-deep font-display text-sm font-semibold text-gold">
                   {initials(t.customerName)}
                 </span>
                 <div>

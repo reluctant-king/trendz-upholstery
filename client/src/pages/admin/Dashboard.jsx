@@ -69,7 +69,7 @@ export default function Dashboard() {
           <Link
             key={c.label}
             to={c.to}
-            className="rounded-3xl bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift"
+            className="rounded-3xl bg-surface p-5 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift"
           >
             <span className={`flex h-10 w-10 items-center justify-center rounded-2xl ${c.tone}`}>
               <c.icon size={18} />
@@ -81,7 +81,7 @@ export default function Dashboard() {
       </div>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
-        <div className="rounded-4xl bg-white p-6 shadow-soft sm:p-8">
+        <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
           <div className="flex items-center justify-between">
             <h2 className="font-display text-xl text-navy">Recent Enquiries</h2>
             <Link to="/admin/enquiries" className="text-xs font-semibold text-mutedGold hover:text-gold">
@@ -97,7 +97,7 @@ export default function Dashboard() {
                 className="flex items-center justify-between gap-4 rounded-2xl border border-ink/5 bg-cream/50 px-4 py-3 transition-colors hover:border-gold/40"
               >
                 <div className="flex min-w-0 items-center gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy text-xs font-bold text-gold">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-deep text-xs font-bold text-gold">
                     {initials(e.name)}
                   </span>
                   <div className="min-w-0">
@@ -117,7 +117,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="rounded-4xl bg-white p-6 shadow-soft sm:p-8">
+        <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
           <h2 className="font-display text-xl text-navy">Quick Actions</h2>
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {[

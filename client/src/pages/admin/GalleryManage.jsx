@@ -108,7 +108,7 @@ export default function GalleryManage() {
         </div>
       )}
 
-      <div className="rounded-4xl bg-white p-6 shadow-soft sm:p-8">
+      <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
         <h3 className="mb-4 font-display text-lg text-navy">Upload New Images</h3>
         <ImageUploader value={[]} onChange={addUploaded} max={12} folder="gallery" />
       </div>
@@ -124,15 +124,15 @@ export default function GalleryManage() {
                 onClick={() => toggleFeatured(img)}
                 aria-label="Toggle featured"
                 className={`absolute right-2.5 top-2.5 flex h-9 w-9 items-center justify-center rounded-full shadow transition-colors ${
-                  img.featured ? 'bg-gold text-navy' : 'bg-white/85 text-ink/40 hover:text-gold'
+                  img.featured ? 'bg-gold text-deep' : 'bg-surface/85 text-ink/40 hover:text-gold'
                 }`}
               >
                 <Star size={15} />
               </button>
-              <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-navy/80 to-transparent p-2.5 opacity-0 transition-opacity group-hover:opacity-100">
+              <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-deep/80 to-transparent p-2.5 opacity-0 transition-opacity group-hover:opacity-100">
                 <p className="truncate pr-2 text-xs font-medium text-white">{img.title || img.category || 'Untitled'}</p>
                 <div className="flex gap-1.5">
-                  <button onClick={() => setEditing({ ...img })} className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-navy" aria-label="Edit">
+                  <button onClick={() => setEditing({ ...img })} className="flex h-8 w-8 items-center justify-center rounded-full bg-surface text-navy" aria-label="Edit">
                     <Pencil size={13} />
                   </button>
                   <button onClick={() => setConfirm(img)} className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-white" aria-label="Delete">

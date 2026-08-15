@@ -12,7 +12,7 @@ const companyLinks = [
 
 const serviceLinks = [
   { label: 'Sofa Upholstery', to: '/services' },
-  { label: 'Curtains', to: '/services' },
+  { label: 'Curtains & Blinds', to: '/services' },
   { label: 'Seat Covers', to: '/services' },
   { label: 'Custom Furniture', to: '/services' },
   { label: 'Cushions', to: '/services' },
@@ -27,13 +27,13 @@ const helpLinks = [
 export default function Footer() {
   const { settings } = useSite();
   const socials = [
-    { icon: Instagram, href: settings.instagram || '#' },
-    { icon: Facebook, href: settings.facebook || '#' },
-    { icon: Youtube, href: settings.youtube || '#' },
-  ];
+    { icon: Instagram, href: settings.instagram },
+    { icon: Facebook, href: settings.facebook },
+    { icon: Youtube, href: settings.youtube },
+  ].filter((s) => s.href);
 
   return (
-    <footer className="bg-navy text-white">
+    <footer className="bg-deep text-white">
       <div className="container-px grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-8 lg:py-20">
         <div>
           <Logo dark />
@@ -72,22 +72,26 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="mb-5 text-[11px] font-semibold uppercase tracking-eyebrow text-gold">Follow</h3>
-          <div className="flex items-center gap-3">
-            {socials.map((s, i) => (
-              <a
-                key={i}
-                href={s.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Social link"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white/75 transition-colors hover:border-gold hover:bg-gold hover:text-navy"
-              >
-                <s.icon size={17} />
-              </a>
-            ))}
-          </div>
-          <h3 className="mb-5 mt-8 text-[11px] font-semibold uppercase tracking-eyebrow text-gold">Help</h3>
+          {socials.length > 0 && (
+            <>
+              <h3 className="mb-5 text-[11px] font-semibold uppercase tracking-eyebrow text-gold">Follow</h3>
+              <div className="flex items-center gap-3">
+                {socials.map((s, i) => (
+                  <a
+                    key={i}
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Social link"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white/75 transition-colors hover:border-gold hover:bg-gold hover:text-deep"
+                  >
+                    <s.icon size={17} />
+                  </a>
+                ))}
+              </div>
+            </>
+          )}
+          <h3 className={`mb-5 text-[11px] font-semibold uppercase tracking-eyebrow text-gold ${socials.length > 0 ? 'mt-8' : ''}`}>Help</h3>
           <ul className="space-y-3">
             {helpLinks.map((l) => (
               <li key={l.label}>

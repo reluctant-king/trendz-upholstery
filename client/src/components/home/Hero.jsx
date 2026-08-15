@@ -98,7 +98,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.9, duration: 0.7 }}
-            className="absolute -left-4 top-10 animate-float rounded-3xl bg-white/95 p-4 shadow-lift backdrop-blur sm:-left-8"
+            className="absolute -left-4 top-10 animate-float rounded-3xl bg-surface/95 p-4 shadow-lift backdrop-blur sm:-left-8"
           >
             <div className="flex items-center gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gold/15 text-gold">
@@ -115,7 +115,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 0.7 }}
-            className="absolute -bottom-6 right-4 animate-float rounded-3xl bg-navy p-5 text-white shadow-lift sm:right-8 [animation-delay:1.5s]"
+            className="absolute -bottom-6 right-4 animate-float rounded-3xl bg-deep p-5 text-white shadow-lift sm:right-8 [animation-delay:1.5s]"
           >
             <p className="font-display text-3xl text-gold">500+</p>
             <p className="mt-0.5 text-[11px] uppercase tracking-[0.16em] text-white/60">Projects Crafted</p>

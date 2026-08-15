@@ -10,7 +10,7 @@ export default function Materials() {
   useSeo({
     title: 'Materials & Finishes',
     description:
-      'Choose from premium velvet, linen, cotton, leather, suede, textured and performance fabrics — and find your perfect shade.',
+      'Choose from premium velvet, linen, cotton, leather, suede, textured and performance fabrics — and find your perfect shade for upholstery, curtains and blinds.',
   });
 
   const { materials, projects } = useSite();
@@ -34,7 +34,7 @@ export default function Materials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.55, delay: (i % 4) * 0.07, ease: [0.22, 1, 0.36, 1] }}
-              className="group overflow-hidden rounded-4xl bg-white shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lift"
+              className="group overflow-hidden rounded-4xl bg-surface shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lift"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
@@ -43,7 +43,7 @@ export default function Materials() {
                   className="h-full w-full"
                   imgClassName="transition-transform duration-700 group-hover:scale-110"
                 />
-                <span className="absolute left-4 top-4 rounded-full bg-white/85 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-navy backdrop-blur">
+                <span className="absolute left-4 top-4 rounded-full bg-surface/85 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-navy backdrop-blur">
                   {material.name}
                 </span>
               </div>

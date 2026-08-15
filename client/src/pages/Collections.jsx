@@ -46,7 +46,7 @@ export default function Collections() {
                 className="h-full w-full"
                 imgClassName="transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-deep/85 via-deep/20 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-7 sm:p-8">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold">{collection.tagline}</p>
                 <h2 className="mt-1 font-display text-3xl text-white sm:text-4xl">{collection.name}</h2>
@@ -60,7 +60,7 @@ export default function Collections() {
         </div>
 
         <Reveal className="container-px mt-14">
-          <div className="rounded-4xl bg-navy p-10 text-center text-white md:p-14">
+          <div className="rounded-4xl bg-deep p-10 text-center text-white md:p-14">
             <h2 className="font-display text-3xl md:text-4xl">Can't Find Your Style?</h2>
             <p className="mx-auto mt-3 max-w-xl text-white/65">
               Every collection is just a starting point. We design around your space, your taste and

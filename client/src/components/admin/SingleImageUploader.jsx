@@ -37,11 +37,11 @@ export default function SingleImageUploader({ value, onChange, folder = 'project
       {value ? (
         <div className="group relative overflow-hidden rounded-3xl border border-ink/10">
           <img src={value} alt={label} className={`w-full ${aspect} object-cover`} />
-          <div className="absolute inset-0 flex items-center justify-center gap-2 bg-navy/50 opacity-0 transition-opacity group-hover:opacity-100">
+          <div className="absolute inset-0 flex items-center justify-center gap-2 bg-deep/50 opacity-0 transition-opacity group-hover:opacity-100">
             <button
               type="button"
               onClick={() => inputRef.current?.click()}
-              className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold text-navy"
+              className="flex items-center gap-2 rounded-full bg-surface px-4 py-2 text-xs font-semibold text-navy"
             >
               <RefreshCw size={13} /> Replace
             </button>

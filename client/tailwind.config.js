@@ -1,17 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        cream: '#F5F0E8',
-        beige: '#E8DED0',
-        gold: '#FCA311',
-        mutedGold: '#C9923E',
-        navy: '#14213D',
-        ink: '#171717',
-        charcoal: '#000000',
-        warmWhite: '#FFFFFF',
+        cream: 'rgb(var(--cream) / <alpha-value>)',
+        beige: 'rgb(var(--beige) / <alpha-value>)',
+        gold: 'rgb(var(--gold) / <alpha-value>)',
+        mutedGold: 'rgb(var(--muted-gold) / <alpha-value>)',
+        navy: 'rgb(var(--navy) / <alpha-value>)',
+        ink: 'rgb(var(--ink) / <alpha-value>)',
+        deep: 'rgb(var(--deep) / <alpha-value>)',
+        surface: 'rgb(var(--surface) / <alpha-value>)',
+        warmWhite: 'rgb(var(--warm-white) / <alpha-value>)',
+        charcoal: '#000814',
       },
       fontFamily: {
         display: ['"Playfair Display"', 'Georgia', 'serif'],
@@ -22,10 +25,10 @@ export default {
         '5xl': '2.5rem',
       },
       boxShadow: {
-        card: '0 24px 48px -24px rgba(20, 33, 61, 0.18)',
-        soft: '0 12px 32px -16px rgba(20, 33, 61, 0.14)',
-        gold: '0 14px 34px -12px rgba(252, 163, 17, 0.45)',
-        lift: '0 32px 64px -24px rgba(20, 33, 61, 0.3)',
+        card: '0 24px 48px -24px rgba(0, 53, 102, 0.18)',
+        soft: '0 12px 32px -16px rgba(0, 53, 102, 0.14)',
+        gold: '0 14px 34px -12px rgba(255, 195, 0, 0.45)',
+        lift: '0 32px 64px -24px rgba(0, 53, 102, 0.3)',
       },
       letterSpacing: {
         eyebrow: '0.22em',

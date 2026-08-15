@@ -3,9 +3,38 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --cream: 244 246 250;
+    --beige: 231 235 242;
+    --gold: 255 195 0;
+    --muted-gold: 166 124 0;
+    --navy: 0 53 102;
+    --ink: 0 29 61;
+    --deep: 0 53 102;
+    --surface: 255 255 255;
+    --warm-white: 255 255 255;
+  }
+
+  .dark {
+    --cream: 9 15 26;
+    --beige: 17 25 40;
+    --gold: 255 195 0;
+    --muted-gold: 216 174 62;
+    --navy: 225 232 242;
+    --ink: 205 213 226;
+    --deep: 0 53 102;
+    --surface: 17 25 40;
+    --warm-white: 12 19 32;
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   body {
@@ -43,23 +72,23 @@
   }
 
   .btn-primary {
-    @apply bg-gold text-navy shadow-gold hover:bg-navy hover:text-white hover:shadow-lift;
+    @apply bg-gold text-deep shadow-gold hover:bg-deep hover:text-white hover:shadow-lift;
   }
 
   .btn-outline {
-    @apply border border-navy/25 text-navy hover:border-navy hover:bg-navy hover:text-white;
+    @apply border border-deep/25 text-navy hover:border-deep hover:bg-deep hover:text-white;
   }
 
   .btn-white {
-    @apply bg-white text-navy hover:bg-gold;
+    @apply bg-surface text-navy hover:bg-gold hover:text-deep;
   }
 
   .btn-dark {
-    @apply bg-navy text-white hover:bg-gold hover:text-navy;
+    @apply bg-deep text-white hover:bg-gold hover:text-deep;
   }
 
   .input-base {
-    @apply w-full rounded-2xl border border-ink/10 bg-white px-4 py-3.5 text-sm text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-gold focus:ring-2 focus:ring-gold/20;
+    @apply w-full rounded-2xl border border-ink/10 bg-surface px-4 py-3.5 text-sm text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-gold focus:ring-2 focus:ring-gold/20;
   }
 
   .label-base {
@@ -67,7 +96,7 @@
   }
 
   .card-base {
-    @apply overflow-hidden rounded-4xl bg-white shadow-soft;
+    @apply overflow-hidden rounded-4xl bg-surface shadow-soft;
   }
 
   .no-scrollbar::-webkit-scrollbar {
@@ -84,9 +113,15 @@
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #f5f0e8;
+  background: #eef1f6;
 }
 ::-webkit-scrollbar-thumb {
-  background: #fca311;
+  background: #ffc300;
   border-radius: 999px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #0c1320;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #ffc300;
 }

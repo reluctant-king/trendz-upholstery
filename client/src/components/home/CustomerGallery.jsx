@@ -50,7 +50,7 @@ export default function CustomerGallery() {
                 className="h-full w-full"
                 imgClassName="transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-navy/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-deep/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </motion.button>
           ))}
         </div>

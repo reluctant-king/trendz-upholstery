@@ -56,14 +56,14 @@ export default function ProjectDetail() {
   return (
     <>
       <article>
-        <section className="relative bg-navy pt-28 pb-12 md:pt-36">
+        <section className="relative bg-deep pt-28 pb-12 md:pt-36">
           <div className="container-px">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <Link to="/our-work" className="inline-flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-gold">
                 <ArrowLeft size={15} /> All Projects
               </Link>
               <div className="mt-6 flex flex-wrap items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.16em]">
-                <span className="rounded-full bg-gold px-3 py-1.5 text-navy">{project.categoryName}</span>
+                <span className="rounded-full bg-gold px-3 py-1.5 text-deep">{project.categoryName}</span>
                 {project.featured && <span className="rounded-full border border-gold/40 px-3 py-1.5 text-gold">Featured</span>}
               </div>
               <h1 className="mt-5 max-w-4xl font-display text-4xl leading-tight text-white sm:text-5xl md:text-6xl">
@@ -142,7 +142,7 @@ export default function ProjectDetail() {
               </div>
 
               <aside className="lg:sticky lg:top-32 lg:self-start">
-                <div className="rounded-4xl bg-white p-6 shadow-soft sm:p-8">
+                <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
                   <h3 className="font-display text-xl text-navy">Project Details</h3>
                   <dl className="mt-5 space-y-4">
                     {details.map((d) => (

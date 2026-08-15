@@ -80,7 +80,7 @@ export default function SettingsManage() {
       <AdminPageHeader title="Settings" description="Site-wide settings, contact details and SEO." />
 
       <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr]">
-        <form onSubmit={saveSettings} className="rounded-4xl bg-white p-6 shadow-soft sm:p-8">
+        <form onSubmit={saveSettings} className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
           <h2 className="mb-6 font-display text-xl text-navy">Site Settings</h2>
           <div className="grid gap-5 sm:grid-cols-2">
             {fields.map((f) => (
@@ -96,7 +96,7 @@ export default function SettingsManage() {
         </form>
 
         <div>
-          <form onSubmit={savePassword} className="rounded-4xl bg-white p-6 shadow-soft sm:p-8">
+          <form onSubmit={savePassword} className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
             <h2 className="font-display text-xl text-navy">Change Password</h2>
             <p className="mt-1 text-xs text-ink/45">Keep your admin account secure.</p>
             <div className="mt-5 space-y-4">
@@ -117,7 +117,7 @@ export default function SettingsManage() {
             </div>
           </form>
 
-          <div className="mt-6 rounded-4xl bg-navy p-6 text-white">
+          <div className="mt-6 rounded-4xl bg-deep p-6 text-white">
             <h3 className="font-display text-lg">Tip</h3>
             <p className="mt-2 text-sm leading-relaxed text-white/60">
               The WhatsApp number is used by the floating chat button and all WhatsApp links across

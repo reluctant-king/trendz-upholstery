@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const FALLBACK = 'data:image/svg+xml;utf8,' + encodeURIComponent(
-  `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900"><rect width="1200" height="900" fill="#E8DED0"/><g fill="#C9923E" opacity="0.5"><circle cx="600" cy="450" r="140"/></g><text x="600" y="470" font-family="Georgia,serif" font-size="44" fill="#14213D" text-anchor="middle" opacity="0.45">Trendz Upholstery</text></svg>`
+  `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900"><rect width="1200" height="900" fill="#E7EBF2"/><g fill="#FFC300" opacity="0.6"><circle cx="600" cy="450" r="140"/></g><text x="600" y="470" font-family="Georgia,serif" font-size="44" fill="#003566" text-anchor="middle" opacity="0.45">Trendz Upholstery</text></svg>`
 );
 
 export default function Image({ src, alt = '', className = '', imgClassName = '', eager = false, ...rest }) {
