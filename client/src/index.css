@@ -109,6 +109,42 @@
   }
 }
 
+/* Admin dashboard — forced dark navy shell */
+html.is-admin {
+  color-scheme: dark;
+}
+
+.admin-shell,
+.admin-shell .dark {
+  color-scheme: dark;
+}
+
+html.is-admin ::-webkit-scrollbar,
+.admin-shell ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html.is-admin ::-webkit-scrollbar-track,
+.admin-shell ::-webkit-scrollbar-track {
+  background: rgb(9 15 26);
+}
+
+html.is-admin ::-webkit-scrollbar-thumb,
+.admin-shell ::-webkit-scrollbar-thumb {
+  background: #ffc300;
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

@@ -24,19 +24,20 @@ const categories = [
   { name: 'Cushions', description: 'Decorative and functional cushions made to match your interiors.', image: P.bedroom3 },
   { name: 'Custom Furniture', description: 'Unique furniture pieces built and upholstered to your specification.', image: P.living3 },
   { name: 'Car Interiors', description: 'Custom-fit car seat covers with professional finishing.', image: P.car2 },
-  { name: 'Headboards', description: 'Tailored upholstered headboards for a complete bedroom look.', image: P.bedroom },
-  { name: 'Other Works', description: 'Specialized and custom upholstery projects.', image: P.living7 },
+  { name: 'Other Upholstery', description: 'Specialized and custom upholstery projects.', image: P.living7 },
 ];
 
 const services = [
-  { title: 'Sofa Sets', description: 'Complete sofa sets designed, customized and upholstered for your home.', features: ['Custom size and shape', 'Frame & cushioning', 'Fabric selection'], image: P.sofa1 },
+  { title: 'Full Sofa Sets', description: 'Complete sofa sets designed, customized and upholstered for your home.', features: ['Custom size and shape', 'Frame & cushioning', 'Fabric selection'], image: P.sofa1 },
+  { title: 'Sofa Upholstery', description: 'Give your existing furniture a completely new look.', features: ['New fabric', 'Cushion replacement', 'Frame repair'], image: P.sofa2 },
   { title: 'Curtains', description: 'Custom curtains with carefully selected fabrics, colors and finishes.', features: ['Custom measurement', 'Lining & hardware', 'Sewing & finishing'], image: P.bedroom4 },
   { title: 'Seat Covers', description: 'Tailored seat covers designed for comfort, durability and style.', features: ['Perfect fit', 'Washable fabrics', 'Durable stitching'], image: P.living2 },
-  { title: 'Sofa Upholstery', description: 'Give your existing furniture a completely new look.', features: ['New fabric', 'Cushion replacement', 'Frame repair'], image: P.sofa2 },
-  { title: 'Custom Cushions', description: 'Decorative and functional cushions made to match your interiors.', features: ['Custom sizes', 'Variety of fabrics', 'Matching sets'], image: P.bedroom3 },
-  { title: 'Chair & Dining Upholstery', description: 'Premium upholstery solutions for chairs and dining furniture.', features: ['Dining chairs', 'Office chairs', 'Recliners'], image: P.chair },
-  { title: 'Car Seat Covers', description: 'Custom-fit seat covers with professional finishing.', features: ['Custom fit', 'Quality material', 'Easy install'], image: P.car2 },
-  { title: 'Custom Projects', description: 'Unique upholstery solutions based on your requirements.', features: ['Any project size', 'Fabric matching', 'On-site work'], image: P.living3 },
+  { title: 'Chair Upholstery', description: 'Premium upholstery solutions for chairs and dining furniture.', features: ['Dining chairs', 'Office chairs', 'Recliners'], image: P.chair },
+  { title: 'Cushions', description: 'Decorative and functional cushions made to match your interiors.', features: ['Custom sizes', 'Variety of fabrics', 'Matching sets'], image: P.bedroom3 },
+  { title: 'Custom Furniture', description: 'Unique furniture pieces built and upholstered to your specification.', features: ['Any project size', 'Fabric matching', 'On-site work'], image: P.living3 },
+  { title: 'Car Interiors', description: 'Custom-fit car seat covers with professional finishing.', features: ['Custom fit', 'Quality material', 'Easy install'], image: P.car2 },
+  { title: 'Headboards', description: 'Tailored upholstered headboards for a complete bedroom look.', features: ['Custom sizes', 'Fabric matching', 'Fitting & install'], image: P.bedroom },
+  { title: 'Other Upholstery Works', description: 'Specialized and custom upholstery projects of any kind.', features: ['Any project size', 'Fabric matching', 'On-site work'], image: P.living7 },
 ];
 
 const materials = [
@@ -144,7 +145,7 @@ const projects = [
   },
   {
     title: 'Upholstered Headboard & Bedroom Set',
-    categoryName: 'Headboards',
+    categoryName: 'Custom Furniture',
     description: 'Custom upholstered headboard with piped detail, matched with cushioning and fabric across the room.',
     location: 'Vyttila, Kochi',
     materials: 'MDF base, foam, premium velvet',
@@ -223,7 +224,7 @@ const projects = [
   },
   {
     title: 'Studio Transformation — Full Living Room',
-    categoryName: 'Other Works',
+    categoryName: 'Other Upholstery',
     description: 'End-to-end interior upholstery: sofa, armchairs, curtains and cushions across one living space.',
     location: 'Kochi',
     materials: 'Mixed premium fabrics',
@@ -238,18 +239,18 @@ const projects = [
 ];
 
 const galleryImages = [
-  { url: P.sofa1, alt: 'Modern beige sofa set', title: 'Modern L-Shape Sofa', category: 'Sofa Sets', featured: true },
-  { url: P.sofa2, alt: 'Navy velvet reupholstered sofa', title: 'Reupholstered Sofa', category: 'Sofa Upholstery', featured: true },
-  { url: P.living1, alt: 'Luxury living room', title: 'Luxury Living Room', category: 'Custom Furniture' },
+  { url: P.sofa1, alt: 'Modern beige sofa set', title: 'Modern L-Shape Sofa', category: 'Sofa Work', featured: true },
+  { url: P.sofa2, alt: 'Navy velvet reupholstered sofa', title: 'Reupholstered Sofa', category: 'Sofa Work', featured: true },
+  { url: P.living1, alt: 'Luxury living room', title: 'Luxury Living Room', category: 'Completed Work' },
   { url: P.living2, alt: 'Minimal living room', title: 'Minimal Living Room', category: 'Seat Covers' },
-  { url: P.living3, alt: 'Modern corner sofa', title: 'Corner Sofa', category: 'Custom Furniture', featured: true },
-  { url: P.chair, alt: 'Upholstered dining chair', title: 'Dining Chair', category: 'Chairs' },
-  { url: P.armchair, alt: 'Accent armchair', title: 'Accent Armchair', category: 'Chairs' },
-  { url: P.bedroom, alt: 'Upholstered headboard', title: 'Headboard', category: 'Headboards' },
+  { url: P.living3, alt: 'Modern corner sofa', title: 'Corner Sofa', category: 'Completed Work', featured: true },
+  { url: P.chair, alt: 'Upholstered dining chair', title: 'Dining Chair', category: 'Sofa Work' },
+  { url: P.armchair, alt: 'Accent armchair', title: 'Accent Armchair', category: 'Workshop' },
+  { url: P.bedroom, alt: 'Upholstered headboard', title: 'Headboard', category: 'Completed Work' },
   { url: P.bedroom4, alt: 'Curtains in a bedroom', title: 'Custom Curtains', category: 'Curtains' },
-  { url: P.car2, alt: 'Custom car seat covers', title: 'Car Seat Covers', category: 'Car Interiors' },
-  { url: P.bedroom3, alt: 'Cushion collection on bed', title: 'Cushion Collection', category: 'Cushions' },
-  { url: P.living6, alt: 'Velvet sofa set', title: 'Velvet Sofa Set', category: 'Sofa Sets' },
+  { url: P.car2, alt: 'Custom car seat covers', title: 'Car Seat Covers', category: 'Seat Covers' },
+  { url: P.bedroom3, alt: 'Cushion collection on bed', title: 'Cushion Collection', category: 'Sofa Work' },
+  { url: P.living6, alt: 'Velvet sofa set', title: 'Velvet Sofa Set', category: 'Sofa Work' },
 ];
 
 const adminPassword = 'admin123';

@@ -6,8 +6,8 @@ import Image from '../ui/Image';
 import { useSite } from '../../context/SiteContext';
 
 export default function FeaturedServices() {
-  const { services } = useSite();
-  const list = services.slice(0, 4);
+  const { services, settings } = useSite();
+  const list = services.filter((s) => s.published !== false).slice(0, 4);
 
   return (
     <section className="bg-cream py-20 md:py-28" id="services">
@@ -15,7 +15,7 @@ export default function FeaturedServices() {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
             eyebrow="Our Craft"
-            title="What We Create"
+            title={settings.servicesTitle || 'What We Create'}
             subtitle="From complete sofa sets to the smallest finishing detail, every piece is made to fit your space."
           />
           <motion.div

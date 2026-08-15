@@ -1,23 +1,25 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, Loader2, Mail, MessageCircle, Phone } from 'lucide-react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { ArrowLeft, Loader2, Mail, MessageCircle, Phone, Trash2 } from 'lucide-react';
 import { StatusBadge } from '../../components/admin/FormFields';
-import { enquiryApi } from '../../lib/api';
-import { getErrorMessage } from '../../lib/api';
+import ConfirmDialog from '../../components/admin/ConfirmDialog';
+import { enquiryApi, getErrorMessage } from '../../lib/api';
 import { formatDate, whatsaapLink } from '../../lib/utils';
 import { useSite } from '../../context/SiteContext';
 import { placeholderEnquiries } from '../../lib/placeholderEnquiries';
 
-const statuses = ['New', 'Contacted', 'Quotation Sent', 'In Progress', 'Completed', 'Closed'];
+const statuses = ['New', 'Contacted', 'Completed'];
 
 export default function EnquiryDetail() {
   const { id } = useParams();
-  const { settings } = useSite();
+  const navigate = useNavigate();
+  const { settings, refresh } = useSite();
   const [enquiry, setEnquiry] = useState(null);
   const [loading, setLoading] = useState(true);
   const [notes, setNotes] = useState('');
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
+  const [confirm, setConfirm] = useState(false);
 
   useEffect(() => {
     const load = async () => {
@@ -42,15 +44,15 @@ export default function EnquiryDetail() {
 
   const updateStatus = async (status) => {
     if (!enquiry) return;
-    const optimistic = { ...enquiry, status };
-    setEnquiry(optimistic);
+    const previous = enquiry;
+    setEnquiry({ ...enquiry, status });
     setSaving(true);
     setError('');
     try {
       const data = await enquiryApi.update(id, { status });
       setEnquiry(data.enquiry);
     } catch (err) {
-      setEnquiry(enquiry);
+      setEnquiry(previous);
       setError(getErrorMessage(err));
     } finally {
       setSaving(false);
@@ -71,6 +73,16 @@ export default function EnquiryDetail() {
     }
   };
 
+  const remove = async () => {
+    try {
+      await enquiryApi.remove(id);
+      await refresh();
+      navigate('/admin/enquiries');
+    } catch (err) {
+      setError(getErrorMessage(err));
+    }
+  };
+
   if (loading) return <div className="flex justify-center py-24"><Loader2 size={28} className="animate-spin text-gold" /></div>;
 
   if (!enquiry) {
@@ -86,53 +98,56 @@ export default function EnquiryDetail() {
 
   return (
     <>
-      <Link to="/admin/enquiries" className="mb-4 inline-flex items-center gap-2 text-sm text-ink/50 transition-colors hover:text-navy">
+      <Link to="/admin/enquiries" className="mb-4 inline-flex items-center gap-2 text-sm text-ink/50 transition-colors hover:text-gold">
         <ArrowLeft size={15} /> Back to enquiries
       </Link>
 
       <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr]">
         <div className="space-y-6">
-          <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
+          <div className="rounded-4xl bg-surface p-6 shadow-soft ring-1 ring-ink/10 sm:p-8">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <h1 className="font-display text-2xl text-navy">{enquiry.name}</h1>
+                <p className="eyebrow mb-1">Enquiry</p>
+                <h1 className="font-display text-2xl text-ink">{enquiry.name}</h1>
                 <p className="mt-1 text-sm text-ink/50">Received {formatDate(enquiry.createdAt)}</p>
               </div>
               <StatusBadge status={enquiry.status} />
             </div>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              {[
-                { icon: Phone, label: 'Phone', value: enquiry.phone, href: `tel:${enquiry.phone}` },
-                ...(enquiry.email
-                  ? [{ icon: Mail, label: 'Email', value: enquiry.email, href: `mailto:${enquiry.email}` }]
-                  : []),
-                {
-                  icon: MessageCircle,
-                  label: 'WhatsApp',
-                  value: 'Message customer',
-                  href: whatsaapLink(enquiry.phone.replace(/\D/g, ''), `Hello ${enquiry.name}, thank you for your enquiry with us. We'd love to discuss your project.`),
-                },
-              ].map((c, i) => (
-                <a
-                  key={i}
-                  href={c.href}
-                  target={c.href.startsWith('http') ? '_blank' : undefined}
-                  rel={c.href.startsWith('http') ? 'noreferrer' : undefined}
-                  className="flex items-center gap-3 rounded-2xl border border-ink/8 bg-cream/50 p-4 transition-colors hover:border-gold/40"
-                >
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gold/15 text-mutedGold"><c.icon size={16} /></span>
+              <a href={`tel:${enquiry.phone}`} className="flex items-center gap-3 rounded-2xl border border-ink/10 bg-ink/5 p-4 transition-colors hover:border-gold/40">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gold/15 text-gold"><Phone size={16} /></span>
+                <div className="min-w-0">
+                  <p className="text-[10px] font-semibold uppercase tracking-wide text-ink/45">Call</p>
+                  <p className="truncate text-sm font-medium text-ink">{enquiry.phone}</p>
+                </div>
+              </a>
+              {enquiry.email && (
+                <a href={`mailto:${enquiry.email}`} className="flex items-center gap-3 rounded-2xl border border-ink/10 bg-ink/5 p-4 transition-colors hover:border-gold/40">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gold/15 text-gold"><Mail size={16} /></span>
                   <div className="min-w-0">
-                    <p className="text-[10px] font-semibold uppercase tracking-wide text-ink/45">{c.label}</p>
-                    <p className="truncate text-sm font-medium text-navy">{c.value}</p>
+                    <p className="text-[10px] font-semibold uppercase tracking-wide text-ink/45">Email</p>
+                    <p className="truncate text-sm font-medium text-ink">{enquiry.email}</p>
                   </div>
                 </a>
-              ))}
+              )}
+              <a
+                href={whatsaapLink(enquiry.phone.replace(/\D/g, ''), `Hello ${enquiry.name}, thank you for your enquiry with us. We'd love to discuss your project.`)}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 rounded-2xl border border-ink/10 bg-ink/5 p-4 transition-colors hover:border-gold/40"
+              >
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gold/15 text-gold"><MessageCircle size={16} /></span>
+                <div className="min-w-0">
+                  <p className="text-[10px] font-semibold uppercase tracking-wide text-ink/45">WhatsApp</p>
+                  <p className="truncate text-sm font-medium text-ink">Message customer</p>
+                </div>
+              </a>
             </div>
           </div>
 
-          <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
-            <h2 className="font-display text-xl text-navy">Project Description</h2>
+          <div className="rounded-4xl bg-surface p-6 shadow-soft ring-1 ring-ink/10 sm:p-8">
+            <h2 className="font-display text-xl text-ink">Project Description</h2>
             <p className="mt-3 whitespace-pre-line text-[15px] leading-relaxed text-ink/70">{enquiry.description}</p>
 
             <dl className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -142,16 +157,16 @@ export default function EnquiryDetail() {
                 { label: 'Preferred Material', value: enquiry.material || 'Not specified' },
                 { label: 'Preferred Contact', value: enquiry.contactMethod || 'phone' },
               ].map((d) => (
-                <div key={d.label} className="rounded-2xl border border-ink/8 bg-cream/40 p-4">
+                <div key={d.label} className="rounded-2xl border border-ink/10 bg-ink/5 p-4">
                   <dt className="text-[10px] font-semibold uppercase tracking-wide text-ink/45">{d.label}</dt>
-                  <dd className="mt-1 text-sm font-medium text-navy">{d.value}</dd>
+                  <dd className="mt-1 text-sm font-medium text-ink">{d.value}</dd>
                 </div>
               ))}
             </dl>
 
             {enquiry.images && enquiry.images.length > 0 && (
               <div className="mt-6">
-                <h3 className="text-sm font-semibold text-navy">Attached Images</h3>
+                <h3 className="text-sm font-semibold text-ink">Attached Images</h3>
                 <div className="mt-3 grid grid-cols-3 gap-3 sm:grid-cols-4">
                   {enquiry.images.map((img, i) => (
                     <a key={i} href={img} target="_blank" rel="noreferrer" className="block">
@@ -165,8 +180,9 @@ export default function EnquiryDetail() {
         </div>
 
         <div className="space-y-6">
-          <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
-            <h2 className="font-display text-xl text-navy">Update Status</h2>
+          <div className="rounded-4xl bg-surface p-6 shadow-soft ring-1 ring-ink/10 sm:p-8">
+            <h2 className="font-display text-xl text-ink">Update Status</h2>
+            <p className="mt-1 text-xs text-ink/45">Move this enquiry along your workflow.</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {statuses.map((s) => (
                 <button
@@ -181,10 +197,25 @@ export default function EnquiryDetail() {
                 </button>
               ))}
             </div>
+            <div className="mt-4 grid gap-2">
+              {enquiry.status !== 'Contacted' && (
+                <button onClick={() => updateStatus('Contacted')} disabled={saving} className="btn-outline w-full py-3">
+                  Mark Contacted
+                </button>
+              )}
+              {enquiry.status !== 'Completed' && (
+                <button onClick={() => updateStatus('Completed')} disabled={saving} className="btn-primary w-full py-3">
+                  Mark Completed
+                </button>
+              )}
+              <button onClick={() => setConfirm(true)} disabled={saving} className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-red-400/30 px-6 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-red-300 transition-colors hover:bg-red-500/10">
+                <Trash2 size={14} /> Delete Enquiry
+              </button>
+            </div>
           </div>
 
-          <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
-            <h2 className="font-display text-xl text-navy">Internal Notes</h2>
+          <div className="rounded-4xl bg-surface p-6 shadow-soft ring-1 ring-ink/10 sm:p-8">
+            <h2 className="font-display text-xl text-ink">Internal Notes</h2>
             <p className="mt-1 text-xs text-ink/45">Only visible to you, not to the customer.</p>
             <textarea
               rows={6}
@@ -196,7 +227,7 @@ export default function EnquiryDetail() {
             <button onClick={saveNotes} disabled={saving} className="btn-primary mt-4 w-full py-3.5">
               {saving ? <Loader2 size={15} className="animate-spin" /> : 'Save Notes'}
             </button>
-            {error && <p className="mt-3 text-sm text-red-500">{error}</p>}
+            {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
           </div>
 
           <div className="rounded-4xl bg-deep p-6 text-white">
@@ -213,6 +244,15 @@ export default function EnquiryDetail() {
           </div>
         </div>
       </div>
+
+      <ConfirmDialog
+        open={confirm}
+        onClose={() => setConfirm(false)}
+        onConfirm={remove}
+        title="Delete this enquiry?"
+        description={`Enquiry from ${enquiry.name} will be permanently removed.`}
+        confirmText="Delete Enquiry"
+      />
     </>
   );
 }

@@ -3,6 +3,10 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 
+function portalTarget() {
+  return document.getElementById('admin-modal-root') || document.body;
+}
+
 export default function Modal({ open, onClose, children, maxWidth = 'max-w-2xl' }) {
   useEffect(() => {
     if (!open) return;
@@ -45,6 +49,6 @@ export default function Modal({ open, onClose, children, maxWidth = 'max-w-2xl' 
         </motion.div>
       )}
     </AnimatePresence>,
-    document.body
+    portalTarget()
   );
 }

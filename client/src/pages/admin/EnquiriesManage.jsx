@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Loader2, Search } from 'lucide-react';
+import { Inbox, Loader2, Search } from 'lucide-react';
 import AdminPageHeader from '../../components/admin/AdminPageHeader';
+import EmptyState from '../../components/admin/EmptyState';
 import { StatusBadge } from '../../components/admin/FormFields';
-import { enquiryApi } from '../../lib/api';
-import { getErrorMessage } from '../../lib/api';
+import { enquiryApi, getErrorMessage } from '../../lib/api';
 import { placeholderEnquiries } from '../../lib/placeholderEnquiries';
 import { formatDate, initials } from '../../lib/utils';
 
-const statuses = ['All', 'New', 'Contacted', 'Quotation Sent', 'In Progress', 'Completed', 'Closed'];
+const statuses = ['All', 'New', 'Contacted', 'Completed'];
 
 export default function EnquiriesManage() {
   const [enquiries, setEnquiries] = useState([]);
@@ -49,6 +49,7 @@ export default function EnquiriesManage() {
   return (
     <>
       <AdminPageHeader
+        eyebrow="Business"
         title="Enquiries"
         description="Customer quote requests from the website."
         action={
@@ -73,7 +74,7 @@ export default function EnquiriesManage() {
         }
       />
 
-      {error && <p className="mb-5 rounded-2xl bg-amber-50 px-4 py-3 text-sm text-amber-700">{error}</p>}
+      {error && <p className="mb-5 rounded-2xl border border-amber-400/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-300">{error}</p>}
 
       <div className="no-scrollbar mb-5 flex gap-2 overflow-x-auto">
         {statuses.map((s) => (
@@ -96,12 +97,18 @@ export default function EnquiriesManage() {
 
       {loading ? (
         <div className="flex justify-center py-24"><Loader2 size={28} className="animate-spin text-gold" /></div>
+      ) : filtered.length === 0 ? (
+        <EmptyState
+          icon={Inbox}
+          title="No enquiries found"
+          description="Try clearing the search or choosing a different status."
+        />
       ) : (
-        <div className="overflow-hidden rounded-4xl bg-surface shadow-soft">
+        <div className="overflow-hidden rounded-4xl bg-surface shadow-soft ring-1 ring-ink/10">
           <div className="overflow-x-auto">
             <table className="w-full min-w-[820px] text-left">
               <thead>
-                <tr className="border-b border-ink/8 bg-cream/60 text-[11px] font-semibold uppercase tracking-wide text-ink/45">
+                <tr className="border-b border-ink/8 bg-ink/5 text-[11px] font-semibold uppercase tracking-wide text-ink/45">
                   <th className="px-5 py-4">Customer</th>
                   <th className="px-5 py-4">Phone</th>
                   <th className="px-5 py-4">Service</th>
@@ -112,12 +119,12 @@ export default function EnquiriesManage() {
               </thead>
               <tbody>
                 {filtered.map((e) => (
-                  <tr key={e._id} className="border-b border-ink/5 transition-colors hover:bg-cream/40">
+                  <tr key={e._id} className="border-b border-ink/5 transition-colors hover:bg-ink/5">
                     <td className="px-5 py-4">
                       <div className="flex items-center gap-3">
                         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-deep text-xs font-bold text-gold">{initials(e.name)}</span>
                         <div>
-                          <p className="text-sm font-semibold text-navy">{e.name}</p>
+                          <p className="text-sm font-semibold text-ink">{e.name}</p>
                           <p className="text-xs text-ink/40">{e.email || 'No email'}</p>
                         </div>
                       </div>
@@ -133,9 +140,6 @@ export default function EnquiriesManage() {
                     </td>
                   </tr>
                 ))}
-                {filtered.length === 0 && (
-                  <tr><td colSpan={6} className="px-5 py-14 text-center text-sm text-ink/45">No enquiries found.</td></tr>
-                )}
               </tbody>
             </table>
           </div>

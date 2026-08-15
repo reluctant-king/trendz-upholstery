@@ -4,7 +4,7 @@ import { uploadApi, getErrorMessage } from '../../lib/api';
 
 const MAX_SIZE = 8 * 1024 * 1024;
 
-export default function SingleImageUploader({ value, onChange, folder = 'projects', label = 'Image', aspect = 'aspect-[16/10]', className = '' }) {
+export default function SingleImageUploader({ value, onChange, folder = 'projects', label = 'Image', hint, aspect = 'aspect-[16/10]', className = '' }) {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
   const inputRef = useRef(null);
@@ -34,14 +34,15 @@ export default function SingleImageUploader({ value, onChange, folder = 'project
   return (
     <div className={className}>
       <p className="label-base">{label}</p>
+      {hint && <p className="mb-1.5 text-xs text-ink/45">{hint}</p>}
       {value ? (
-        <div className="group relative overflow-hidden rounded-3xl border border-ink/10">
+        <div className="group relative overflow-hidden rounded-3xl border border-ink/15">
           <img src={value} alt={label} className={`w-full ${aspect} object-cover`} />
-          <div className="absolute inset-0 flex items-center justify-center gap-2 bg-deep/50 opacity-0 transition-opacity group-hover:opacity-100">
+          <div className="absolute inset-0 flex items-center justify-center gap-2 bg-charcoal/60 opacity-0 transition-opacity group-hover:opacity-100">
             <button
               type="button"
               onClick={() => inputRef.current?.click()}
-              className="flex items-center gap-2 rounded-full bg-surface px-4 py-2 text-xs font-semibold text-navy"
+              className="flex items-center gap-2 rounded-full bg-surface px-4 py-2 text-xs font-semibold text-ink"
             >
               <RefreshCw size={13} /> Replace
             </button>
@@ -59,20 +60,20 @@ export default function SingleImageUploader({ value, onChange, folder = 'project
           type="button"
           onClick={() => inputRef.current?.click()}
           disabled={uploading}
-          className={`flex w-full flex-col items-center justify-center rounded-3xl border-2 border-dashed border-ink/15 bg-cream/40 ${aspect} transition-colors hover:border-mutedGold disabled:opacity-60`}
+          className={`flex w-full flex-col items-center justify-center rounded-3xl border-2 border-dashed border-ink/20 bg-ink/5 ${aspect} transition-colors hover:border-mutedGold hover:bg-ink/10 disabled:opacity-60`}
         >
           {uploading ? (
-            <Loader2 size={20} className="animate-spin text-mutedGold" />
+            <Loader2 size={20} className="animate-spin text-gold" />
           ) : (
             <>
-              <ImagePlus size={20} className="text-mutedGold" />
+              <ImagePlus size={20} className="text-gold" />
               <span className="mt-2 text-xs font-medium text-ink/55">Upload {label.toLowerCase()}</span>
             </>
           )}
         </button>
       )}
       <input ref={inputRef} type="file" accept="image/*" hidden onChange={(e) => e.target.files?.[0] && upload(e.target.files[0])} />
-      {error && <p className="mt-2 text-xs text-red-500">{error}</p>}
+      {error && <p className="mt-2 text-xs text-red-400">{error}</p>}
     </div>
   );
 }

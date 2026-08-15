@@ -30,6 +30,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setMobileOpen(false);
+    setScrolled(window.scrollY > 24);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -45,11 +46,13 @@ export default function Navbar() {
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
           scrolled
             ? 'border-b border-ink/5 bg-cream/80 shadow-soft backdrop-blur-xl'
-            : 'border-b border-transparent bg-transparent'
+            : location.pathname === '/'
+              ? 'border-b border-white/10 bg-deep/25 backdrop-blur-md'
+              : 'border-b border-white/10 bg-deep/90 backdrop-blur-xl'
         }`}
       >
         <div className="container-px flex h-20 items-center justify-between md:h-24">
-          <Logo />
+          <Logo dark={!scrolled} />
 
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Main navigation">
             {links.map((link) => (
@@ -60,8 +63,12 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `relative text-[13px] font-medium tracking-wide transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-[2px] after:rounded-full after:bg-gold after:transition-all after:duration-300 ${
                     isActive
-                      ? 'text-navy after:w-full'
-                      : 'text-navy/65 after:w-0 hover:text-navy hover:after:w-full'
+                      ? scrolled
+                        ? 'text-navy after:w-full'
+                        : 'text-white after:w-full'
+                      : scrolled
+                        ? 'text-navy/65 after:w-0 hover:text-navy hover:after:w-full'
+                        : 'text-white/70 after:w-0 hover:text-white hover:after:w-full'
                   }`
                 }
               >
@@ -71,7 +78,7 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <ThemeToggle className="hidden lg:flex" />
+            <ThemeToggle dark={!scrolled} className="hidden lg:flex" />
             <Link
               to="/quote"
               className="btn-primary hidden sm:inline-flex px-6 py-3"
@@ -81,7 +88,11 @@ export default function Navbar() {
             <button
               onClick={() => setMobileOpen((v) => !v)}
               aria-label="Open menu"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/10 bg-surface/70 text-navy backdrop-blur transition-colors hover:bg-gold hover:text-deep lg:hidden"
+              className={`flex h-11 w-11 items-center justify-center rounded-full border backdrop-blur transition-colors hover:bg-gold hover:text-deep lg:hidden ${
+                scrolled
+                  ? 'border-ink/10 bg-surface/70 text-navy'
+                  : 'border-white/20 bg-white/10 text-white'
+              }`}
             >
               <Menu size={20} />
             </button>

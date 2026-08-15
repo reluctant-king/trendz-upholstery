@@ -17,6 +17,7 @@ export default function Services() {
   });
 
   const { services, projects } = useSite();
+  const visibleServices = services.filter((s) => s.published !== false);
 
   return (
     <>
@@ -30,7 +31,7 @@ export default function Services() {
 
       <section className="bg-cream py-16 md:py-24">
         <div className="container-px grid gap-8 lg:grid-cols-2">
-          {services.map((service, i) => (
+          {visibleServices.map((service, i) => (
             <motion.div
               key={service._id}
               initial={{ opacity: 0, y: 28 }}

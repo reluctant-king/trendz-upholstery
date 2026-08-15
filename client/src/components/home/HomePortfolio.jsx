@@ -7,7 +7,7 @@ import PortfolioGrid from '../portfolio/PortfolioGrid';
 import { useSite } from '../../context/SiteContext';
 
 export default function HomePortfolio() {
-  const { projects, categories } = useSite();
+  const { projects, categories, settings } = useSite();
   const [active, setActive] = useState('All');
 
   const filterList = categories.map((c) => c.name);
@@ -19,7 +19,7 @@ export default function HomePortfolio() {
       <div className="container-px">
         <SectionHeading
           eyebrow="Portfolio"
-          title="Our Work"
+          title={settings.featuredWorkTitle || 'Our Work'}
           subtitle="A collection of spaces, furniture and custom pieces brought back to life."
           align="center"
         />

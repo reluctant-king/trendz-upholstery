@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Loader2, Lock, Mail } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
@@ -15,6 +15,11 @@ export default function AdminLogin() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    document.documentElement.classList.add('is-admin');
+    return () => document.documentElement.classList.remove('is-admin');
+  }, []);
+
   const submit = async (e) => {
     e.preventDefault();
     setError('');
@@ -30,13 +35,13 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-deep px-5 py-12">
+    <div className="admin-shell dark relative flex min-h-screen items-center justify-center bg-deep px-5 py-12">
       <div className="pointer-events-none absolute -left-32 top-20 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
       <div className="w-full max-w-md">
         <Link to="/" className="mb-8 inline-flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-gold">
           <ArrowLeft size={15} /> Back to website
         </Link>
-        <div className="rounded-4xl bg-surface p-8 shadow-lift sm:p-10">
+        <div className="rounded-4xl bg-surface p-8 shadow-lift ring-1 ring-white/10 sm:p-10">
           <div className="mb-8 text-center">
             <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-3xl bg-gold/15 text-gold">
               <Lock size={22} />
@@ -76,7 +81,7 @@ export default function AdminLogin() {
               />
             </div>
 
-            {error && <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>}
+            {error && <p className="rounded-2xl bg-red-500/10 px-4 py-3 text-sm text-red-300">{error}</p>}
 
             <button type="submit" disabled={loading} className="btn-primary w-full py-4 disabled:opacity-60">
               {loading && <Loader2 size={15} className="animate-spin" />}

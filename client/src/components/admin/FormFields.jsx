@@ -5,12 +5,12 @@ export function Field({ label, required, hint, error, children }) {
     <div>
       {label && (
         <label className="label-base">
-          {label} {required && <span className="text-gold">*</span>}
+          {label} {required && <span className="text-mutedGold">*</span>}
         </label>
       )}
       {children}
       {hint && <p className="mt-1.5 text-xs text-ink/45">{hint}</p>}
-      {error && <p className="mt-1.5 text-xs text-red-500">{error}</p>}
+      {error && <p className="mt-1.5 text-xs text-red-400">{error}</p>}
     </div>
   );
 }
@@ -46,15 +46,15 @@ export function Toggle({ label, checked, onChange, description }) {
     <button
       type="button"
       onClick={() => onChange(!checked)}
-      className="flex w-full items-center justify-between gap-4 rounded-2xl border border-ink/10 bg-surface px-4 py-3.5 text-left transition-colors hover:border-gold/50"
+      className="flex w-full items-center justify-between gap-4 rounded-2xl border border-ink/10 bg-surface px-4 py-3.5 text-left transition-all hover:border-gold/50"
       role="switch"
       aria-checked={checked}
     >
       <span>
-        <span className="block text-sm font-medium text-navy">{label}</span>
+        <span className="block text-sm font-medium text-ink">{label}</span>
         {description && <span className="mt-0.5 block text-xs text-ink/45">{description}</span>}
       </span>
-      <span className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${checked ? 'bg-gold' : 'bg-ink/20'}`}>
+      <span className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${checked ? 'bg-gold shadow-gold' : 'bg-ink/25'}`}>
         <span
           className={`absolute top-0.5 h-5 w-5 rounded-full bg-surface shadow transition-all ${checked ? 'left-[22px]' : 'left-0.5'}`}
         />
@@ -72,18 +72,48 @@ export function SubmitButton({ loading, children, className = '' }) {
 }
 
 export const statusStyles = {
-  New: 'bg-blue-50 text-blue-600 border-blue-100',
-  Contacted: 'bg-purple-50 text-purple-600 border-purple-100',
-  'Quotation Sent': 'bg-amber-50 text-amber-700 border-amber-100',
-  'In Progress': 'bg-teal-50 text-teal-600 border-teal-100',
-  Completed: 'bg-green-50 text-green-600 border-green-100',
-  Closed: 'bg-ink/5 text-ink/50 border-ink/10',
+  New: 'bg-blue-500/15 text-blue-300 border-blue-400/30',
+  Contacted: 'bg-purple-500/15 text-purple-300 border-purple-400/30',
+  Completed: 'bg-green-500/15 text-green-300 border-green-400/30',
+};
+
+const statusDot = {
+  New: 'bg-blue-400',
+  Contacted: 'bg-purple-400',
+  Completed: 'bg-green-400',
 };
 
 export function StatusBadge({ status }) {
   return (
-    <span className={`inline-flex rounded-full border px-3 py-1 text-[11px] font-semibold ${statusStyles[status] || statusStyles.New}`}>
+    <span className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11px] font-semibold ${statusStyles[status] || statusStyles.New}`}>
+      <span className={`h-1.5 w-1.5 rounded-full ${statusDot[status] || statusDot.New}`} />
       {status}
+    </span>
+  );
+}
+
+export function PublishedBadge({ published, labels = { live: 'Published', draft: 'Draft' } }) {
+  return (
+    <span
+      className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11px] font-semibold ${
+        published ? 'border-green-400/30 bg-green-500/15 text-green-300' : 'border-ink/15 bg-ink/10 text-ink/50'
+      }`}
+    >
+      <span className={`h-1.5 w-1.5 rounded-full ${published ? 'bg-green-400' : 'bg-ink/40'}`} />
+      {published ? labels.live : labels.draft}
+    </span>
+  );
+}
+
+export function ActiveBadge({ active }) {
+  return (
+    <span
+      className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11px] font-semibold ${
+        active ? 'border-green-400/30 bg-green-500/15 text-green-300' : 'border-ink/15 bg-ink/10 text-ink/50'
+      }`}
+    >
+      <span className={`h-1.5 w-1.5 rounded-full ${active ? 'bg-green-400' : 'bg-ink/40'}`} />
+      {active ? 'Active' : 'Inactive'}
     </span>
   );
 }

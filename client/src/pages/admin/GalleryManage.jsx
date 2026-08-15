@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react';
-import { Loader2, Pencil, Star, Trash2 } from 'lucide-react';
+import { ImageIcon, Loader2, Pencil, Star, Trash2 } from 'lucide-react';
 import AdminPageHeader from '../../components/admin/AdminPageHeader';
+import EmptyState from '../../components/admin/EmptyState';
 import ImageUploader from '../../components/admin/ImageUploader';
 import ConfirmDialog from '../../components/admin/ConfirmDialog';
 import Modal from '../../components/ui/Modal';
 import { TextInput } from '../../components/admin/FormFields';
-import { galleryApi } from '../../lib/api';
-import { getErrorMessage } from '../../lib/api';
+import { galleryApi, getErrorMessage } from '../../lib/api';
 import { useSite } from '../../context/SiteContext';
 import { placeholderGallery } from '../../lib/placeholderData';
 
+const GALLERY_CATEGORIES = ['Sofa Work', 'Curtains', 'Seat Covers', 'Workshop', 'Completed Work'];
+
 export default function GalleryManage() {
-  const { galleryImages, categories, refresh } = useSite();
+  const { galleryImages: siteImages, refresh } = useSite();
   const [images, setImages] = useState(placeholderGallery);
   const [apiConnected, setApiConnected] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -19,6 +21,7 @@ export default function GalleryManage() {
   const [editing, setEditing] = useState(null);
   const [confirm, setConfirm] = useState(null);
   const [saving, setSaving] = useState(false);
+  const [filter, setFilter] = useState('All');
 
   useEffect(() => {
     const load = async () => {
@@ -27,13 +30,13 @@ export default function GalleryManage() {
         setImages(data.images);
         setApiConnected(true);
       } catch {
-        setImages(placeholderGallery);
+        setImages(siteImages.length ? siteImages : placeholderGallery);
       } finally {
         setLoading(false);
       }
     };
     load();
-  }, []);
+  }, [siteImages]);
 
   const addUploaded = async (list) => {
     setSaving(true);
@@ -92,32 +95,56 @@ export default function GalleryManage() {
     }
   };
 
+  const filtered = filter === 'All' ? images : images.filter((i) => i.category === filter);
+
   return (
     <>
       <AdminPageHeader
+        eyebrow="Content"
         title="Gallery"
         description="Customer gallery images — add, edit, feature or remove images."
-        action={apiConnected ? null : undefined}
       />
 
-      {error && <p className="mb-5 rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>}
+      {error && <p className="mb-5 rounded-2xl bg-red-500/10 px-4 py-3 text-sm text-red-300">{error}</p>}
 
       {!apiConnected && (
-        <div className="mb-6 rounded-2xl bg-amber-50 px-4 py-3 text-sm text-amber-700">
+        <div className="mb-6 rounded-2xl border border-amber-400/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-300">
           API offline — showing sample images. Start the server to manage the real gallery.
         </div>
       )}
 
-      <div className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
-        <h3 className="mb-4 font-display text-lg text-navy">Upload New Images</h3>
+      <div className="rounded-4xl bg-surface p-6 shadow-soft ring-1 ring-ink/10 sm:p-8">
+        <h3 className="mb-4 font-display text-lg text-ink">Upload New Images</h3>
         <ImageUploader value={[]} onChange={addUploaded} max={12} folder="gallery" />
+      </div>
+
+      <div className="mt-6 flex flex-wrap gap-2">
+        {['All', ...GALLERY_CATEGORIES].map((c) => (
+          <button
+            key={c}
+            onClick={() => setFilter(c)}
+            className={`rounded-full px-4 py-2 text-xs font-semibold transition-all ${
+              filter === c ? 'bg-gold text-deep shadow-gold' : 'bg-ink/10 text-ink/55 hover:bg-ink/15 hover:text-ink'
+            }`}
+          >
+            {c} {c !== 'All' && <span className="opacity-60">({images.filter((i) => i.category === c).length})</span>}
+          </button>
+        ))}
       </div>
 
       {loading ? (
         <div className="flex justify-center py-20"><Loader2 size={28} className="animate-spin text-gold" /></div>
+      ) : filtered.length === 0 ? (
+        <div className="mt-6">
+          <EmptyState
+            icon={ImageIcon}
+            title={filter === 'All' ? 'No images in the gallery yet' : `No images in "${filter}"`}
+            description={filter === 'All' ? 'Upload images above and they will appear here.' : 'Upload images and assign this category, or pick another filter.'}
+          />
+        </div>
       ) : (
         <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {images.map((img) => (
+          {filtered.map((img) => (
             <div key={img._id} className="group relative overflow-hidden rounded-3xl bg-beige/50 ring-1 ring-ink/8">
               <img src={img.url} alt={img.alt || img.title || 'Gallery image'} className="aspect-[4/3] w-full object-cover" />
               <button
@@ -129,10 +156,10 @@ export default function GalleryManage() {
               >
                 <Star size={15} />
               </button>
-              <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-deep/80 to-transparent p-2.5 opacity-0 transition-opacity group-hover:opacity-100">
+              <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-charcoal/85 to-transparent p-2.5 opacity-0 transition-opacity group-hover:opacity-100">
                 <p className="truncate pr-2 text-xs font-medium text-white">{img.title || img.category || 'Untitled'}</p>
                 <div className="flex gap-1.5">
-                  <button onClick={() => setEditing({ ...img })} className="flex h-8 w-8 items-center justify-center rounded-full bg-surface text-navy" aria-label="Edit">
+                  <button onClick={() => setEditing({ ...img })} className="flex h-8 w-8 items-center justify-center rounded-full bg-surface text-ink" aria-label="Edit">
                     <Pencil size={13} />
                   </button>
                   <button onClick={() => setConfirm(img)} className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-white" aria-label="Delete">
@@ -148,7 +175,7 @@ export default function GalleryManage() {
       <Modal open={Boolean(editing)} onClose={() => setEditing(null)} maxWidth="max-w-md">
         {editing && (
           <>
-            <h3 className="font-display text-2xl text-navy">Edit Image</h3>
+            <h3 className="font-display text-2xl text-ink">Edit Image</h3>
             <div className="mt-5 overflow-hidden rounded-2xl">
               <img src={editing.url} alt={editing.alt} className="aspect-video w-full object-cover" />
             </div>
@@ -165,8 +192,8 @@ export default function GalleryManage() {
                 <label className="label-base">Category</label>
                 <select className="input-base" value={editing.category} onChange={(e) => setEditing({ ...editing, category: e.target.value })}>
                   <option value="">No category</option>
-                  {categories.map((c) => (
-                    <option key={c._id} value={c.name}>{c.name}</option>
+                  {GALLERY_CATEGORIES.map((c) => (
+                    <option key={c} value={c}>{c}</option>
                   ))}
                 </select>
               </div>

@@ -34,9 +34,11 @@ const P = {
 export const placeholderSettings = {
   businessName: 'Trendz Upholstery',
   tagline: 'Custom Upholstery, Curtains & Blinds',
+  logo: '',
   whatsappNumber: '918089794908',
   phoneNumber: '+91 80897 94908',
   email: 'hello@trendzupholstery.com',
+  adminEmail: 'admin@trendz.com',
   address: 'Ettumanoor Road, Neendoor, Kottayam, Kerala 686601',
   businessHours: 'Open daily · Closes 10:00 PM',
   instagram: '',
@@ -45,31 +47,48 @@ export const placeholderSettings = {
   mapEmbedUrl: '',
   metaDescription:
     'Premium upholstery, curtains and blinds studio in Neendoor, Kottayam. Sofa sets, upholstery, curtains, blinds, seat covers and custom furniture crafted to fit your space.',
+  heroHeading: 'Furniture That Feels Like Home.',
+  heroDescription:
+    'Premium sofas, custom upholstery, curtains and furniture solutions crafted around your style.',
+  heroButtonText: 'View Our Work',
+  heroBaseImage: '',
+  heroRevealImage: '',
+  aboutShortDescription:
+    'We believe furniture should not simply fill a room. It should reflect the people who live there.',
+  featuredWorkTitle: 'Our Work',
+  servicesTitle: 'What We Create',
+  testimonialsTitle: 'What Our Customers Say',
+  aboutHeading: 'Your Furniture. Our Craftsmanship.',
+  aboutDescription:
+    'Trendz Upholstery started with a simple belief: that good furniture should not be thrown away, and new furniture should not have to look like everyone else\u2019s. We are a dedicated team of upholsterers, pattern cutters and finishers who take pride in bringing pieces back to life and building new ones from scratch. From complete sofa sets and curtains to car seat covers and custom cushions, we guide every project from fabric selection to final finishing \u2014 made to fit your space, crafted to last.',
+  aboutImage: '',
+  yearsExperience: '15+',
+  projectsCompleted: '500+',
 };
 
 export const placeholderCategories = [
   { _id: 'c1', name: 'Sofa Sets', slug: 'sofa-sets', description: 'Complete sofa sets designed, customized and upholstered for your home.', image: P.sofa1 },
   { _id: 'c2', name: 'Sofa Upholstery', slug: 'sofa-upholstery', description: 'Give your existing sofa a completely new look.', image: P.sofa2 },
-  { _id: 'c3', name: 'Curtains & Blinds', slug: 'curtains-blinds', description: 'Custom curtains and blinds with carefully selected fabrics, colors and finishes.', image: P.bedroom4 },
+  { _id: 'c3', name: 'Curtains', slug: 'curtains', description: 'Custom curtains with carefully selected fabrics, colors and finishes.', image: P.bedroom4 },
   { _id: 'c4', name: 'Seat Covers', slug: 'seat-covers', description: 'Tailored seat covers designed for comfort, durability and style.', image: P.living2 },
   { _id: 'c5', name: 'Chairs', slug: 'chairs', description: 'Premium upholstery solutions for chairs and dining furniture.', image: P.chair },
   { _id: 'c6', name: 'Cushions', slug: 'cushions', description: 'Decorative and functional cushions made to match your interiors.', image: P.bedroom3 },
   { _id: 'c7', name: 'Custom Furniture', slug: 'custom-furniture', description: 'Unique furniture pieces built and upholstered to your specification.', image: P.living3 },
   { _id: 'c8', name: 'Car Interiors', slug: 'car-interiors', description: 'Custom-fit car seat covers with professional finishing.', image: P.car2 },
-  { _id: 'c9', name: 'Headboards', slug: 'headboards', description: 'Tailored upholstered headboards for a complete bedroom look.', image: P.bedroom },
-  { _id: 'c10', name: 'Other Works', slug: 'other-works', description: 'Specialized and custom upholstery projects.', image: P.living7 },
+  { _id: 'c9', name: 'Other Upholstery', slug: 'other-upholstery', description: 'Specialized and custom upholstery projects.', image: P.living7 },
 ];
 
 export const placeholderServices = [
-  { _id: 's1', title: 'Sofa Sets', slug: 'sofa-sets', description: 'Complete sofa sets designed, customized and upholstered for your home.', features: ['Custom size and shape', 'Frame & cushioning', 'Fabric selection'], image: P.sofa1 },
-  { _id: 's2', title: 'Curtains & Blinds', slug: 'curtains-blinds', description: 'Custom curtains and blinds with carefully selected fabrics, colors and finishes.', features: ['Custom measurement', 'Lining & hardware', 'Blinds installation'], image: P.bedroom4 },
-  { _id: 's3', title: 'Seat Covers', slug: 'seat-covers', description: 'Tailored seat covers designed for comfort, durability and style.', features: ['Perfect fit', 'Washable fabrics', 'Durable stitching'], image: P.living2 },
-  { _id: 's4', title: 'Sofa Upholstery', slug: 'sofa-upholstery', description: 'Give your existing furniture a completely new look.', features: ['New fabric', 'Cushion replacement', 'Frame repair'], image: P.sofa2 },
-  { _id: 's5', title: 'Custom Cushions', slug: 'custom-cushions', description: 'Decorative and functional cushions made to match your interiors.', features: ['Custom sizes', 'Variety of fabrics', 'Matching sets'], image: P.bedroom3 },
-  { _id: 's6', title: 'Chair & Dining Upholstery', slug: 'chair-dining-upholstery', description: 'Premium upholstery solutions for chairs and dining furniture.', features: ['Dining chairs', 'Office chairs', 'Recliners'], image: P.chair },
-  { _id: 's7', title: 'Car Seat Covers', slug: 'car-seat-covers', description: 'Custom-fit seat covers with professional finishing.', features: ['Custom fit', 'Quality material', 'Easy install'], image: P.car2 },
-  { _id: 's8', title: 'Custom Projects', slug: 'custom-projects', description: 'Unique upholstery solutions based on your requirements.', features: ['Any project size', 'Fabric matching', 'On-site work'], image: P.living3 },
-  { _id: 's9', title: 'Window Blinds', slug: 'window-blinds', description: 'Vertical, roller and wooden blinds made and installed to fit your windows perfectly.', features: ['Custom sizing', 'Wood & PVC options', 'Professional install'], image: P.bedroom4 },
+  { _id: 's1', title: 'Full Sofa Sets', slug: 'full-sofa-sets', description: 'Complete sofa sets designed, customized and upholstered for your home.', features: ['Custom size and shape', 'Frame & cushioning', 'Fabric selection'], image: P.sofa1 },
+  { _id: 's2', title: 'Sofa Upholstery', slug: 'sofa-upholstery', description: 'Give your existing furniture a completely new look.', features: ['New fabric', 'Cushion replacement', 'Frame repair'], image: P.sofa2 },
+  { _id: 's3', title: 'Curtains', slug: 'curtains', description: 'Custom curtains with carefully selected fabrics, colors and finishes.', features: ['Custom measurement', 'Lining & hardware', 'Sewing & finishing'], image: P.bedroom4 },
+  { _id: 's4', title: 'Seat Covers', slug: 'seat-covers', description: 'Tailored seat covers designed for comfort, durability and style.', features: ['Perfect fit', 'Washable fabrics', 'Durable stitching'], image: P.living2 },
+  { _id: 's5', title: 'Chair Upholstery', slug: 'chair-upholstery', description: 'Premium upholstery solutions for chairs and dining furniture.', features: ['Dining chairs', 'Office chairs', 'Recliners'], image: P.chair },
+  { _id: 's6', title: 'Cushions', slug: 'cushions', description: 'Decorative and functional cushions made to match your interiors.', features: ['Custom sizes', 'Variety of fabrics', 'Matching sets'], image: P.bedroom3 },
+  { _id: 's7', title: 'Custom Furniture', slug: 'custom-furniture', description: 'Unique furniture pieces built and upholstered to your specification.', features: ['Any project size', 'Fabric matching', 'On-site work'], image: P.living3 },
+  { _id: 's8', title: 'Car Interiors', slug: 'car-interiors', description: 'Custom-fit car seat covers with professional finishing.', features: ['Custom fit', 'Quality material', 'Easy install'], image: P.car2 },
+  { _id: 's9', title: 'Headboards', slug: 'headboards', description: 'Tailored upholstered headboards for a complete bedroom look.', features: ['Custom sizes', 'Fabric matching', 'Fitting & install'], image: P.bedroom },
+  { _id: 's10', title: 'Other Upholstery Works', slug: 'other-upholstery-works', description: 'Specialized and custom upholstery projects of any kind.', features: ['Any project size', 'Fabric matching', 'On-site work'], image: P.living7 },
 ];
 
 export const placeholderMaterials = [
@@ -102,18 +121,18 @@ export const placeholderTestimonials = [
 const g = (url, alt, title, category, featured = false) => ({ _id: Math.random().toString(36).slice(2), url, alt, title, category, featured });
 
 export const placeholderGallery = [
-  g(P.sofa1, 'Modern beige sofa set', 'Modern L-Shape Sofa', 'Sofa Sets', true),
-  g(P.sofa2, 'Navy velvet reupholstered sofa', 'Reupholstered Sofa', 'Sofa Upholstery', true),
-  g(P.living1, 'Luxury living room', 'Luxury Living Room', 'Custom Furniture'),
+  g(P.sofa1, 'Modern beige sofa set', 'Modern L-Shape Sofa', 'Sofa Work', true),
+  g(P.sofa2, 'Navy velvet reupholstered sofa', 'Reupholstered Sofa', 'Sofa Work', true),
+  g(P.living1, 'Luxury living room', 'Luxury Living Room', 'Completed Work'),
   g(P.living2, 'Minimal living room', 'Minimal Living Room', 'Seat Covers'),
-  g(P.living3, 'Modern corner sofa', 'Corner Sofa', 'Custom Furniture', true),
-  g(P.chair, 'Upholstered dining chair', 'Dining Chair', 'Chairs'),
-  g(P.armchair, 'Accent armchair', 'Accent Armchair', 'Chairs'),
-  g(P.bedroom, 'Upholstered headboard', 'Headboard', 'Headboards'),
-  g(P.bedroom4, 'Curtains and blinds in a bedroom', 'Custom Curtains & Blinds', 'Curtains & Blinds'),
-  g(P.car2, 'Custom car seat covers', 'Car Seat Covers', 'Car Interiors'),
-  g(P.bedroom3, 'Cushion collection on bed', 'Cushion Collection', 'Cushions'),
-  g(P.living6, 'Velvet sofa set', 'Velvet Sofa Set', 'Sofa Sets'),
+  g(P.living3, 'Modern corner sofa', 'Corner Sofa', 'Completed Work', true),
+  g(P.chair, 'Upholstered dining chair', 'Dining Chair', 'Sofa Work'),
+  g(P.armchair, 'Accent armchair', 'Accent Armchair', 'Workshop'),
+  g(P.bedroom, 'Upholstered headboard', 'Headboard', 'Completed Work'),
+  g(P.bedroom4, 'Curtains in a bedroom', 'Custom Curtains', 'Curtains'),
+  g(P.car2, 'Custom car seat covers', 'Car Seat Covers', 'Seat Covers'),
+  g(P.bedroom3, 'Cushion collection on bed', 'Cushion Collection', 'Sofa Work'),
+  g(P.living6, 'Velvet sofa set', 'Velvet Sofa Set', 'Sofa Work'),
 ];
 
 export const placeholderProjects = [
@@ -214,7 +233,7 @@ export const placeholderProjects = [
     _id: 'p6',
     title: 'Upholstered Headboard & Bedroom Set',
     slug: 'upholstered-headboard-bedroom-set',
-    categoryName: 'Headboards',
+    categoryName: 'Custom Furniture',
     description: 'Custom upholstered headboard with piped detail, matched with cushioning and fabric across the room.',
     location: 'Changanassery, Kottayam',
     materials: 'MDF base, foam, premium velvet',
@@ -317,7 +336,7 @@ export const placeholderProjects = [
     _id: 'p12',
     title: 'Studio Transformation — Full Living Room',
     slug: 'studio-transformation-full-living-room',
-    categoryName: 'Other Works',
+    categoryName: 'Other Upholstery',
     description: 'End-to-end interior upholstery: sofa, armchairs, curtains and cushions across one living space.',
     location: 'Neendoor, Kottayam',
     materials: 'Mixed premium fabrics',

@@ -19,16 +19,14 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 
 const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
 const Dashboard = lazy(() => import('./pages/admin/Dashboard'));
-const PortfolioManage = lazy(() => import('./pages/admin/PortfolioManage'));
+const OurWorkManage = lazy(() => import('./pages/admin/OurWorkManage'));
 const ProjectFormPage = lazy(() => import('./pages/admin/ProjectFormPage'));
 const ServicesManage = lazy(() => import('./pages/admin/ServicesManage'));
-const CollectionsManage = lazy(() => import('./pages/admin/CollectionsManage'));
-const MaterialsManage = lazy(() => import('./pages/admin/MaterialsManage'));
 const TestimonialsManage = lazy(() => import('./pages/admin/TestimonialsManage'));
 const EnquiriesManage = lazy(() => import('./pages/admin/EnquiriesManage'));
 const EnquiryDetail = lazy(() => import('./pages/admin/EnquiryDetail'));
-const CategoriesManage = lazy(() => import('./pages/admin/CategoriesManage'));
 const GalleryManage = lazy(() => import('./pages/admin/GalleryManage'));
+const SiteContentManage = lazy(() => import('./pages/admin/SiteContentManage'));
 const SettingsManage = lazy(() => import('./pages/admin/SettingsManage'));
 
 function AnimatedRoutes() {
@@ -59,17 +57,15 @@ function AnimatedRoutes() {
           }
         >
           <Route index element={<Dashboard />} />
-          <Route path="portfolio" element={<PortfolioManage />} />
-          <Route path="portfolio/new" element={<ProjectFormPage />} />
-          <Route path="portfolio/:id/edit" element={<ProjectFormPage />} />
+          <Route path="our-work" element={<OurWorkManage />} />
+          <Route path="our-work/new" element={<ProjectFormPage />} />
+          <Route path="our-work/:id/edit" element={<ProjectFormPage />} />
           <Route path="services" element={<ServicesManage />} />
-          <Route path="collections" element={<CollectionsManage />} />
-          <Route path="materials" element={<MaterialsManage />} />
           <Route path="testimonials" element={<TestimonialsManage />} />
           <Route path="enquiries" element={<EnquiriesManage />} />
           <Route path="enquiries/:id" element={<EnquiryDetail />} />
-          <Route path="categories" element={<CategoriesManage />} />
           <Route path="gallery" element={<GalleryManage />} />
+          <Route path="site-content" element={<SiteContentManage />} />
           <Route path="settings" element={<SettingsManage />} />
         </Route>
 

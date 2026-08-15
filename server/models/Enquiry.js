@@ -13,7 +13,7 @@ const enquirySchema = new mongoose.Schema(
     images: [{ type: String }],
     status: {
       type: String,
-      enum: ['New', 'Contacted', 'Quotation Sent', 'In Progress', 'Completed', 'Closed'],
+      enum: ['New', 'Contacted', 'Completed'],
       default: 'New',
     },
     adminNotes: { type: String, default: '' },

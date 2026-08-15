@@ -15,13 +15,6 @@ const values = [
   { title: 'Built to Last', description: 'Quality frames, foams and fabrics chosen for years of comfortable daily use.' },
 ];
 
-const stats = [
-  { value: '15+', label: 'Years of craft' },
-  { value: '500+', label: 'Projects delivered' },
-  { value: '100%', label: 'Custom made' },
-  { value: '4.9★', label: 'Customer rating' },
-];
-
 export default function About() {
   useSeo({
     title: 'About Us',
@@ -29,7 +22,10 @@ export default function About() {
       'Meet Trendz Upholstery — a craftsmanship-focused upholstery studio building custom sofas, upholstery and furniture around your space and lifestyle.',
   });
 
-  const { projects } = useSite();
+  const { projects, settings } = useSite();
+
+  const experience = settings.yearsExperience || '15+';
+  const delivered = settings.projectsCompleted || '500+';
 
   return (
     <>
@@ -46,20 +42,21 @@ export default function About() {
           <Reveal>
             <div className="overflow-hidden rounded-[2.5rem] shadow-lift">
               <Image
-                src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&q=80&fm=auto&fit=crop"
+                src={
+                  settings.aboutImage ||
+                  'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&q=80&fm=auto&fit=crop'
+                }
                 alt="Inside the Trendz Upholstery workshop"
                 className="aspect-[4/4.6] w-full"
               />
             </div>
           </Reveal>
           <div>
-            <SectionHeading eyebrow="Who We Are" title="Your Furniture. Our Craftsmanship." />
+            <SectionHeading eyebrow="Who We Are" title={settings.aboutHeading || 'Your Furniture. Our Craftsmanship.'} />
             <Reveal delay={0.1}>
               <p className="mt-6 text-base leading-relaxed text-ink/65">
-                Trendz Upholstery started with a simple belief: that good furniture shouldn't be
-                thrown away, and new furniture shouldn't have to look like everyone else's. We are a
-                dedicated team of upholsterers, pattern cutters and finishers who take pride in
-                bringing pieces back to life and building new ones from scratch.
+                {settings.aboutDescription ||
+                  'Trendz Upholstery started with a simple belief: that good furniture should not be thrown away, and new furniture should not have to look like everyone else\u2019s. We are a dedicated team of upholsterers, pattern cutters and finishers who take pride in bringing pieces back to life and building new ones from scratch.'}
               </p>
               <p className="mt-4 text-base leading-relaxed text-ink/65">
                 From complete sofa sets and curtains to car seat covers and custom cushions, we guide
@@ -69,7 +66,12 @@ export default function About() {
             </Reveal>
             <Reveal delay={0.18}>
               <div className="mt-8 grid grid-cols-2 gap-4">
-                {stats.map((s, i) => (
+                {[
+                  { value: experience, label: 'Years of craft' },
+                  { value: delivered, label: 'Projects delivered' },
+                  { value: '100%', label: 'Custom made' },
+                  { value: '4.9★', label: 'Customer rating' },
+                ].map((s, i) => (
                   <div key={i} className="rounded-3xl bg-surface p-5 text-center shadow-soft">
                     <p className="font-display text-3xl text-gold">{s.value}</p>
                     <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink/50">{s.label}</p>

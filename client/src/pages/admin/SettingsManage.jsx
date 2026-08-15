@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Loader2, Save } from 'lucide-react';
 import AdminPageHeader from '../../components/admin/AdminPageHeader';
 import { Field, TextInput } from '../../components/admin/FormFields';
+import SingleImageUploader from '../../components/admin/SingleImageUploader';
 import { authApi, getErrorMessage, settingsApi } from '../../lib/api';
 import { useSite } from '../../context/SiteContext';
 
@@ -10,6 +11,7 @@ export default function SettingsManage() {
   const [form, setForm] = useState({});
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const [pw, setPw] = useState({ currentPassword: '', newPassword: '', confirmPassword: '' });
   const [pwSaving, setPwSaving] = useState(false);
@@ -21,14 +23,17 @@ export default function SettingsManage() {
   }, [settings]);
 
   const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
+  const set = (key, value) => setForm((f) => ({ ...f, [key]: value }));
 
   const saveSettings = async (e) => {
     e.preventDefault();
     setSaving(true);
     setError('');
+    setSuccess('');
     try {
       await settingsApi.save(form);
       await refresh();
+      setSuccess('Settings saved. The website has been updated.');
     } catch (err) {
       setError(getErrorMessage(err));
     } finally {
@@ -66,6 +71,7 @@ export default function SettingsManage() {
     { key: 'whatsappNumber', label: 'WhatsApp Number', hint: 'Include country code, digits only. e.g. 919999999999' },
     { key: 'phoneNumber', label: 'Phone Number' },
     { key: 'email', label: 'Email' },
+    { key: 'adminEmail', label: 'Admin Email', hint: 'Enquiry notifications are sent to this address' },
     { key: 'address', label: 'Business Address' },
     { key: 'businessHours', label: 'Business Hours' },
     { key: 'instagram', label: 'Instagram URL' },
@@ -77,11 +83,20 @@ export default function SettingsManage() {
 
   return (
     <>
-      <AdminPageHeader title="Settings" description="Site-wide settings, contact details and SEO." />
+      <AdminPageHeader
+        eyebrow="System"
+        title="Settings"
+        description="Site-wide settings, branding, contact details and SEO."
+      />
 
       <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr]">
-        <form onSubmit={saveSettings} className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
-          <h2 className="mb-6 font-display text-xl text-navy">Site Settings</h2>
+        <form onSubmit={saveSettings} className="rounded-4xl bg-surface p-6 shadow-soft ring-1 ring-ink/10 sm:p-8">
+          <h2 className="mb-6 font-display text-xl text-ink">Site Settings</h2>
+
+          <div className="mb-6">
+            <SingleImageUploader label="Business Logo" aspect="aspect-[16/10]" value={form.logo || ''} onChange={(logo) => set('logo', logo)} folder="branding" />
+          </div>
+
           <div className="grid gap-5 sm:grid-cols-2">
             {fields.map((f) => (
               <div key={f.key} className={f.key === 'metaDescription' ? 'sm:col-span-2' : ''}>
@@ -89,15 +104,17 @@ export default function SettingsManage() {
               </div>
             ))}
           </div>
-          {error && <p className="mt-5 rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>}
+
+          {error && <p className="mt-5 rounded-2xl bg-red-500/10 px-4 py-3 text-sm text-red-300">{error}</p>}
+          {success && <p className="mt-5 rounded-2xl bg-green-500/10 px-4 py-3 text-sm text-green-300">{success}</p>}
           <button type="submit" disabled={saving} className="btn-primary mt-6 px-8 py-4">
             {saving ? <Loader2 size={15} className="animate-spin" /> : <Save size={15} />} Save Settings
           </button>
         </form>
 
         <div>
-          <form onSubmit={savePassword} className="rounded-4xl bg-surface p-6 shadow-soft sm:p-8">
-            <h2 className="font-display text-xl text-navy">Change Password</h2>
+          <form onSubmit={savePassword} className="rounded-4xl bg-surface p-6 shadow-soft ring-1 ring-ink/10 sm:p-8">
+            <h2 className="font-display text-xl text-ink">Change Password</h2>
             <p className="mt-1 text-xs text-ink/45">Keep your admin account secure.</p>
             <div className="mt-5 space-y-4">
               <Field label="Current Password">
@@ -109,8 +126,8 @@ export default function SettingsManage() {
               <Field label="Confirm New Password">
                 <input type="password" className="input-base" value={pw.confirmPassword} onChange={(e) => setPw({ ...pw, confirmPassword: e.target.value })} required />
               </Field>
-              {pwError && <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-600">{pwError}</p>}
-              {pwSuccess && <p className="rounded-2xl bg-green-50 px-4 py-3 text-sm text-green-600">{pwSuccess}</p>}
+              {pwError && <p className="rounded-2xl bg-red-500/10 px-4 py-3 text-sm text-red-300">{pwError}</p>}
+              {pwSuccess && <p className="rounded-2xl bg-green-500/10 px-4 py-3 text-sm text-green-300">{pwSuccess}</p>}
               <button type="submit" disabled={pwSaving} className="btn-outline w-full py-4">
                 {pwSaving && <Loader2 size={15} className="animate-spin" />} Update Password
               </button>
@@ -120,8 +137,8 @@ export default function SettingsManage() {
           <div className="mt-6 rounded-4xl bg-deep p-6 text-white">
             <h3 className="font-display text-lg">Tip</h3>
             <p className="mt-2 text-sm leading-relaxed text-white/60">
-              The WhatsApp number is used by the floating chat button and all WhatsApp links across
-              the website. Update it here and it changes everywhere instantly.
+              The WhatsApp number and logo are used across the whole website — update them here and
+              they change everywhere instantly.
             </p>
           </div>
         </div>

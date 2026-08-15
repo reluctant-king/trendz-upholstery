@@ -6,7 +6,7 @@ import { initials } from '../../lib/utils';
 import { useSite } from '../../context/SiteContext';
 
 export default function Testimonials() {
-  const { testimonials } = useSite();
+  const { testimonials, settings } = useSite();
   const list = testimonials.slice(0, 3);
 
   return (
@@ -14,7 +14,7 @@ export default function Testimonials() {
       <div className="container-px">
         <SectionHeading
           eyebrow="Testimonials"
-          title="What Our Customers Say"
+          title={settings.testimonialsTitle || 'What Our Customers Say'}
           subtitle="Word of mouth is everything to us — here's what people say after their work is delivered."
           align="center"
         />
