@@ -10,7 +10,7 @@ export default function Logo({ dark = false, className = '' }) {
       {logo ? (
         <img
           src={logo}
-          alt={settings.businessName || 'Trendz Upholstery'}
+          alt={settings.businessName || 'Trendz Furnishing'}
           className="h-9 w-auto max-w-[180px] object-contain"
         />
       ) : (
@@ -20,7 +20,7 @@ export default function Logo({ dark = false, className = '' }) {
               dark ? 'text-white' : 'text-navy'
             } transition-colors`}
           >
-            {settings.businessName || 'Trendz Upholstery'}
+            {settings.businessName || 'Trendz Furnishing'}
           </span>
           <span className={`mt-1 text-[9px] font-semibold uppercase tracking-[0.28em] ${dark ? 'text-gold' : 'text-mutedGold'}`}>
             {settings.tagline || 'Custom Upholstery & Interiors'}

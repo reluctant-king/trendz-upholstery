@@ -41,10 +41,10 @@ const services = [
 ];
 
 const materials = [
-  { name: 'Premium Velvet', description: 'Soft texture with a luxurious appearance, ideal for statement sofas and accent chairs.', colors: ['Navy', 'Mustard', 'Forest', 'Blush'], image: P.fabric4 },
-  { name: 'Linen', description: 'Breathable, natural weave with a relaxed and timeless look.', colors: ['Cream', 'Beige', 'Grey', 'White'], image: P.fabric1 },
-  { name: 'Cotton', description: 'Soft, versatile and easy to live with. A dependable everyday choice.', colors: ['White', 'Beige', 'Olive', 'Navy'], image: P.fabric2 },
-  { name: 'Leather', description: 'Full-grain and bonded leather options for a refined, long-lasting finish.', colors: ['Tan', 'Black', 'Cognac', 'Brown'], image: P.living4 },
+  { name: 'Premium Velvet', description: 'Soft texture with a luxurious appearance, ideal for statement sofas and accent chairs.', colors: ['Navy', 'Mustard', 'Forest', 'Blush'], image: P.fabricVelvet },
+  { name: 'Linen', description: 'Breathable, natural weave with a relaxed and timeless look.', colors: ['Cream', 'Beige', 'Grey', 'White'], image: P.fabricLinen },
+  { name: 'Cotton', description: 'Soft, versatile and easy to live with. A dependable everyday choice.', colors: ['White', 'Beige', 'Olive', 'Navy'], image: P.fabricCotton },
+  { name: 'Leather', description: 'Full-grain and bonded leather options for a refined, long-lasting finish.', colors: ['Tan', 'Black', 'Cognac', 'Brown'], image: P.fabricLeather },
   { name: 'Suede', description: 'Soft, matte texture with an understated, premium feel.', colors: ['Charcoal', 'Grey', 'Sand', 'Terracotta'], image: P.fabric3 },
   { name: 'Textured Fabric', description: 'Woven textures that add depth and character to any piece.', colors: ['Grey', 'Beige', 'Rust', 'Charcoal'], image: P.texture },
   { name: 'Performance Fabric', description: 'Stain-resistant and durable, made for busy homes and daily use.', colors: ['Beige', 'Grey', 'Navy', 'Mustard'], image: P.living5 },

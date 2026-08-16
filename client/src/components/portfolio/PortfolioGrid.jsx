@@ -9,24 +9,25 @@ export default function PortfolioGrid({ projects, loading = false, columns = 3, 
   const colClass = columns === 4 ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-2 lg:grid-cols-3';
 
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.05 }}
-      variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
-      className={`grid gap-6 sm:gap-8 ${colClass} ${className}`}
-    >
-      {projects.map((project) => (
+    <div className={`grid gap-6 sm:gap-8 ${colClass} ${className}`}>
+      {projects.map((project, i) => (
         <motion.div
           key={project._id}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.05 }}
           variants={{
             hidden: { opacity: 0, y: 28 },
-            show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+            show: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: (i % 3) * 0.08 },
+            },
           }}
         >
           <PortfolioCard project={project} />
         </motion.div>
       ))}
-    </motion.div>
+    </div>
   );
 }

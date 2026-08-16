@@ -23,7 +23,7 @@ async function uploadImage(file, folder = 'trendz') {
       console.error('Cloudinary upload failed, falling back to local:', err.message);
     }
   }
-  const url = `/uploads/${file.filename}`;
+  const url = `/uploads/${folder}/${file.filename}`;
   return { url, publicId: '' };
 }
 

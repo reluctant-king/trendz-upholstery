@@ -15,7 +15,7 @@ const setMeta = (attr, key, value) => {
  */
 export const useSeo = ({ title, description, image, url } = {}) => {
   useEffect(() => {
-    const siteName = 'Trendz Upholstery';
+    const siteName = 'Trendz Furnishing';
     const fullTitle = title ? `${title} — ${siteName}` : `${siteName} — Custom Upholstery & Interiors`;
     document.title = fullTitle;
     setMeta('name', 'description', description || '');

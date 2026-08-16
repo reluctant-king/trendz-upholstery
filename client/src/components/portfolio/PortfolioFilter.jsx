@@ -8,7 +8,7 @@ export default function PortfolioFilter({ categories, active, onChange, classNam
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className={`no-scrollbar flex gap-2.5 overflow-x-auto pb-1 ${className}`}
+      className={`flex flex-wrap gap-2.5 ${className}`}
       role="tablist"
       aria-label="Filter projects by category"
     >

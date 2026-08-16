@@ -12,7 +12,7 @@ export default function Contact() {
   useSeo({
     title: 'Contact',
     description:
-      'Get in touch with Trendz Upholstery — visit our studio, call us, message us on WhatsApp or send an enquiry for a free quote.',
+      'Get in touch with Trendz Furnishing — visit our studio, call us, message us on WhatsApp or send an enquiry for a free quote.',
   });
 
   const { settings, projects } = useSite();

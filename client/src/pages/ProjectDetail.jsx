@@ -29,7 +29,7 @@ export default function ProjectDetail() {
     description:
       project?.metaDescription ||
       project?.description?.slice(0, 160) ||
-      'Upholstery project by Trendz Upholstery.',
+      'Upholstery project by Trendz Furnishing.',
     image: project?.coverImage,
     url: typeof window !== 'undefined' ? window.location.href : '',
   });

@@ -29,10 +29,14 @@ const P = {
   fabric3: img('photo-1616627981207-91b1f47f3756', 900),
   fabric4: img('photo-1600334129128-685c5582fd35', 900),
   texture: img('photo-1616594039964-ae9021a400a0', 900),
+  fabricVelvet: img('photo-1673266879972-2ec11dd8d8dc', 900),
+  fabricLinen: img('photo-1528458909336-e7a0adfed0a5', 900),
+  fabricCotton: img('photo-1633527992904-53f86f81a23a', 900),
+  fabricLeather: img('photo-1755543041980-276589f8323c', 900),
 };
 
 export const placeholderSettings = {
-  businessName: 'Trendz Upholstery',
+  businessName: 'Trendz Furnishing',
   tagline: 'Custom Upholstery, Curtains & Blinds',
   logo: '',
   whatsappNumber: '918089794908',
@@ -60,7 +64,7 @@ export const placeholderSettings = {
   testimonialsTitle: 'What Our Customers Say',
   aboutHeading: 'Your Furniture. Our Craftsmanship.',
   aboutDescription:
-    'Trendz Upholstery started with a simple belief: that good furniture should not be thrown away, and new furniture should not have to look like everyone else\u2019s. We are a dedicated team of upholsterers, pattern cutters and finishers who take pride in bringing pieces back to life and building new ones from scratch. From complete sofa sets and curtains to car seat covers and custom cushions, we guide every project from fabric selection to final finishing \u2014 made to fit your space, crafted to last.',
+    'Trendz Furnishing started with a simple belief: that good furniture should not be thrown away, and new furniture should not have to look like everyone else\u2019s. We are a dedicated team of upholsterers, pattern cutters and finishers who take pride in bringing pieces back to life and building new ones from scratch. From complete sofa sets and curtains to car seat covers and custom cushions, we guide every project from fabric selection to final finishing \u2014 made to fit your space, crafted to last.',
   aboutImage: '',
   yearsExperience: '15+',
   projectsCompleted: '500+',
@@ -92,10 +96,10 @@ export const placeholderServices = [
 ];
 
 export const placeholderMaterials = [
-  { _id: 'm1', name: 'Premium Velvet', slug: 'premium-velvet', description: 'Soft texture with a luxurious appearance, ideal for statement sofas and accent chairs.', colors: ['Navy', 'Mustard', 'Forest', 'Blush'], image: P.fabric4 },
-  { _id: 'm2', name: 'Linen', slug: 'linen', description: 'Breathable, natural weave with a relaxed and timeless look.', colors: ['Cream', 'Beige', 'Grey', 'White'], image: P.fabric1 },
-  { _id: 'm3', name: 'Cotton', slug: 'cotton', description: 'Soft, versatile and easy to live with. A dependable everyday choice.', colors: ['White', 'Beige', 'Olive', 'Navy'], image: P.fabric2 },
-  { _id: 'm4', name: 'Leather', slug: 'leather', description: 'Full-grain and bonded leather options for a refined, long-lasting finish.', colors: ['Tan', 'Black', 'Cognac', 'Brown'], image: P.living4 },
+  { _id: 'm1', name: 'Premium Velvet', slug: 'premium-velvet', description: 'Soft texture with a luxurious appearance, ideal for statement sofas and accent chairs.', colors: ['Navy', 'Mustard', 'Forest', 'Blush'], image: P.fabricVelvet },
+  { _id: 'm2', name: 'Linen', slug: 'linen', description: 'Breathable, natural weave with a relaxed and timeless look.', colors: ['Cream', 'Beige', 'Grey', 'White'], image: P.fabricLinen },
+  { _id: 'm3', name: 'Cotton', slug: 'cotton', description: 'Soft, versatile and easy to live with. A dependable everyday choice.', colors: ['White', 'Beige', 'Olive', 'Navy'], image: P.fabricCotton },
+  { _id: 'm4', name: 'Leather', slug: 'leather', description: 'Full-grain and bonded leather options for a refined, long-lasting finish.', colors: ['Tan', 'Black', 'Cognac', 'Brown'], image: P.fabricLeather },
   { _id: 'm5', name: 'Suede', slug: 'suede', description: 'Soft, matte texture with an understated, premium feel.', colors: ['Charcoal', 'Grey', 'Sand', 'Terracotta'], image: P.fabric3 },
   { _id: 'm6', name: 'Textured Fabric', slug: 'textured-fabric', description: 'Woven textures that add depth and character to any piece.', colors: ['Grey', 'Beige', 'Rust', 'Charcoal'], image: P.texture },
   { _id: 'm7', name: 'Performance Fabric', slug: 'performance-fabric', description: 'Stain-resistant and durable, made for busy homes and daily use.', colors: ['Beige', 'Grey', 'Navy', 'Mustard'], image: P.living5 },

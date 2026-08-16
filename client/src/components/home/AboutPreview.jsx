@@ -47,7 +47,7 @@ export default function AboutPreview() {
           />
           <Reveal delay={0.1}>
             <p className="mt-6 text-base leading-relaxed text-ink/60">
-              Trendz Upholstery is a family-run studio dedicated to premium upholstery and custom
+              Trendz Furnishing is a family-run studio dedicated to premium upholstery and custom
               furniture. From complete sofa sets to the smallest cushion, every piece is planned,
               cut and finished by hand — built to fit your space and your lifestyle.
             </p>

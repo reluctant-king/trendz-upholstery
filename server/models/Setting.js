@@ -9,14 +9,14 @@ const settingSchema = new mongoose.Schema(
 );
 
 const defaultSettings = {
-  businessName: 'Trendz Upholstery',
+  businessName: 'Trendz Furnishing',
   tagline: 'Custom Upholstery & Interiors',
   logo: '',
-  whatsappNumber: '919999999999',
-  phoneNumber: '+91 99999 99999',
+  whatsappNumber: '918089794908',
+  phoneNumber: '+91 80897 94908',
   email: 'hello@trendzupholstery.com',
   adminEmail: 'admin@trendz.com',
-  address: 'MG Road, Kochi, Kerala',
+  address: 'Ettumanoor Road, Neendoor, Kottayam, Kerala 686601',
   businessHours: 'Mon – Sat: 9:00 AM – 7:00 PM',
   instagram: '',
   facebook: '',
@@ -37,7 +37,7 @@ const defaultSettings = {
   testimonialsTitle: 'What Our Customers Say',
   aboutHeading: 'Your Furniture. Our Craftsmanship.',
   aboutDescription:
-    'Trendz Upholstery started with a simple belief: that good furniture should not be thrown away, and new furniture should not have to look like everyone else\u2019s. We are a dedicated team of upholsterers, pattern cutters and finishers who take pride in bringing pieces back to life and building new ones from scratch. From complete sofa sets and curtains to car seat covers and custom cushions, we guide every project from fabric selection to final finishing \u2014 made to fit your space, crafted to last.',
+    'Trendz Furnishing started with a simple belief: that good furniture should not be thrown away, and new furniture should not have to look like everyone else\u2019s. We are a dedicated team of upholsterers, pattern cutters and finishers who take pride in bringing pieces back to life and building new ones from scratch. From complete sofa sets and curtains to car seat covers and custom cushions, we guide every project from fabric selection to final finishing \u2014 made to fit your space, crafted to last.',
   aboutImage: '',
   yearsExperience: '15+',
   projectsCompleted: '500+',

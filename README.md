@@ -1,4 +1,4 @@
-# Trendz Upholstery — Premium Upholstery & Custom Furniture Website
+# Trendz Furnishing — Premium Upholstery & Custom Furniture Website
 
 A premium portfolio, product showcase, and enquiry management website built for an upholstery and custom furniture business.
 

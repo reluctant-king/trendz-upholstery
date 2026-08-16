@@ -19,7 +19,7 @@ export default function About() {
   useSeo({
     title: 'About Us',
     description:
-      'Meet Trendz Upholstery — a craftsmanship-focused upholstery studio building custom sofas, upholstery and furniture around your space and lifestyle.',
+      'Meet Trendz Furnishing — a craftsmanship-focused upholstery studio building custom sofas, upholstery and furniture around your space and lifestyle.',
   });
 
   const { projects, settings } = useSite();
@@ -46,7 +46,7 @@ export default function About() {
                   settings.aboutImage ||
                   'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&q=80&fm=auto&fit=crop'
                 }
-                alt="Inside the Trendz Upholstery workshop"
+                alt="Inside the Trendz Furnishing workshop"
                 className="aspect-[4/4.6] w-full"
               />
             </div>
@@ -56,7 +56,7 @@ export default function About() {
             <Reveal delay={0.1}>
               <p className="mt-6 text-base leading-relaxed text-ink/65">
                 {settings.aboutDescription ||
-                  'Trendz Upholstery started with a simple belief: that good furniture should not be thrown away, and new furniture should not have to look like everyone else\u2019s. We are a dedicated team of upholsterers, pattern cutters and finishers who take pride in bringing pieces back to life and building new ones from scratch.'}
+                  'Trendz Furnishing started with a simple belief: that good furniture should not be thrown away, and new furniture should not have to look like everyone else\u2019s. We are a dedicated team of upholsterers, pattern cutters and finishers who take pride in bringing pieces back to life and building new ones from scratch.'}
               </p>
               <p className="mt-4 text-base leading-relaxed text-ink/65">
                 From complete sofa sets and curtains to car seat covers and custom cushions, we guide
